@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 const SECRETKEY1 = process.env.REACT_APP_SECRETKEY1;
@@ -62,7 +61,7 @@ class App extends Component {
     const api = `https://script.google.com/macros/s/${SECRETKEY1}/exec?email=${mentor.email}&key=${SECRETKEY2}&month=${mentor.month}&year=${mentor.year}`;
     axios.get(api)
       .then(res => {
-        console.log(res)
+        // console.log(res)
           const sessionAggregates = res.data.aggregates;
           const dates = res.data.details.map(obj => obj.date);
           const studentNames = res.data.details.map(obj => obj.student_name);
@@ -80,8 +79,9 @@ class App extends Component {
       .catch(err => {
         this.setState({
           loading: false,
-          error: err
+          error: "Uh, oh, something is wrong :O"
         });
+
       });
   }
   renderLoading() {
@@ -94,12 +94,14 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-           {this.state.loadingStarted ? this.renderLoading() : <small>add your email, month and year</small>}
+           <h1> Track your sessions with students </h1>
            <form onSubmit={this.handleForm}>
              <input type="email" placeholder="Email" name="email" required/>
              <input type="integer" placeholder="Month (integer)" name="month" required />
              <input type="integer" placeholder="Year (integer)" name="year" required />
-             <button> Click </button>
+             <button> Go </button>
+            {this.state.loadingStarted ? this.renderLoading() : <p><small>add your email, month and year</small></p>}
+            <span className="error">{this.state.error} </span>
            </form>
         </header>
         <section>
