@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
-const SECRETKEY1 = "";
+const SECRETKEY1 = process.env.REACT_APP_SECRETKEY1;
 const SECRETKEY2 = process.env.REACT_APP_SECRETKEY2;
 class App extends Component {
   constructor(props) {
