@@ -10,4 +10,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ### You need to add secrets keys to .env file to show the data locally
 [How to add secret keys to react app](https://stackoverflow.com/a/50457996/2504334)
 
-###### API doesn't show all data from the previous years :disappointed:
+###### API doesn't show all data from the previous years :no_mouth:
