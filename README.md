@@ -1,3 +1,5 @@
+![Screenshot](http://i63.tinypic.com/hw0irq.png)
+
 # Student Sessions
 
 In the project directory, you can run:
