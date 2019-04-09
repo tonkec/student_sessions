@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
+
 const SECRETKEY1 = process.env.REACT_APP_SECRETKEY1;
 const SECRETKEY2 = process.env.REACT_APP_SECRETKEY2;
 class App extends Component {
@@ -32,10 +33,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-    if (SECRETKEY1 === "" || SECRETKEY2 === "") {
-      alert("Please share your secrets with me! You need to add secret keys from api. More info in the comment in source code")
-      // Follow the steps here: https://stackoverflow.com/a/50457996/2504334
-    }
+
   }
 
   handleForm(e) {

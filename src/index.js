@@ -1,12 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { addSession } from './actions/sessions';
+import configureStore from './store/configureStore';
 import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const store = configureStore();
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+store.dispatch(addSession({studentEmail: "mail@a.com"}))
+console.log(store.getState())
+
+const jsx = (
+  <Provider store={store}>
+    <App />
+  </Provider>
+)
+
+ReactDOM.render(jsx, document.getElementById('root'));
