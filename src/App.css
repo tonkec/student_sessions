@@ -31,9 +31,9 @@ h1 {
 input {
   margin: 0 10px;
   margin-bottom: 0;
-  padding: 5px 15px;
+  padding: 5px 12px;
   line-height: 25px;
-  font-size: 1rem;
+  font-size: .9rem;
   vertical-align: middle;
 }
 

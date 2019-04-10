@@ -6,14 +6,14 @@ const PROJECT_ID = process.env.REACT_APP_FIREBASE_PROJECT_ID;
 const STORAGE_BUCKET = process.env.REACT_APP_FIREBASE_STORAGE_BUCKET;
 const MESSAGING_ID = process.env.REACT_APP_FIREBASE_MESSAGING_ID;
 
-var config = {
+const config = {
    apiKey: APIKEY,
    authDomain: DOMAIN,
    databaseURL: DB_URL,
    projectId: PROJECT_ID,
    storageBucket: STORAGE_BUCKET,
    messagingSenderId: MESSAGING_ID
- };
+};
 
 firebase.initializeApp(config);
 const db = firebase.database();

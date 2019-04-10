@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 
 class SessionForm extends Component {
-  state = {
-    studentEmail: ''
+  constructor(props) {
+    super(props);
+    this.state = {
+      studentEmail: props.studentEmail ? props.studentEmail : ''
+    };
   }
 
   onStudentEmailChange = (e) => {
@@ -20,14 +23,14 @@ class SessionForm extends Component {
       <div>
         <form onSubmit={this.onSubmit}>
           <input
-            type="email"
+            type="text"
             name="email"
             value={this.state.studentEmail}
             onChange={this.onStudentEmailChange}
             placeholder="Student's email address"
             autoFocus
-            required />
-          <button> Go </button>
+          />
+          <button> Add </button>
         </form>
       </div>
     )
