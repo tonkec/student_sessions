@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { addSession } from '../actions/sessions';
 
 class SessionForm extends Component {
   state = {

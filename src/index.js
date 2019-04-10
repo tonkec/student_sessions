@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { addSession } from './actions/sessions';
 import configureStore from './store/configureStore';
 import './index.css';
 import App from './App';
+import db from './firebase/firebase';
 
 const store = configureStore();
 
