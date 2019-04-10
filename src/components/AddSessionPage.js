@@ -1,11 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
+import SessionForm from './SessionForm';
+import {connect} from 'react-redux';
+import {addSession} from '../actions/sessions';
 
-class AddSessionPage extends Component {
-  render() {
-    return(
+const AddSessionPage = (props) => {
+  return (
+    <div>
       <h1> Add New Session </h1>
-    )
-  }
+      <SessionForm onSubmit={(session) => {
+        props.dispatch(addSession(session));
+      }} />
+    </div>
+  )
 }
 
-export default AddSessionPage
+export default connect()(AddSessionPage);

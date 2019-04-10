@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import axios from 'axios';
+import { NavLink } from 'react-router-dom';
 
 const SECRETKEY1 = process.env.REACT_APP_SECRETKEY1;
 const SECRETKEY2 = process.env.REACT_APP_SECRETKEY2;
@@ -56,6 +57,7 @@ class HomePage extends Component {
   }
 
   getSessions(mentor){
+      console.log(this.state)
     const api = `https://script.google.com/macros/s/${SECRETKEY1}/exec?email=${mentor.email}&key=${SECRETKEY2}&month=${mentor.month}&year=${mentor.year}`;
     axios.get(api)
       .then(res => {
@@ -91,6 +93,7 @@ class HomePage extends Component {
   render() {
     return (
       <div className="App">
+        <NavLink to="/addSession" activeClassName="is-active">Add</NavLink>
         <header className="App-header">
            <h1> Track your sessions with students </h1>
            <form onSubmit={this.handleForm}>

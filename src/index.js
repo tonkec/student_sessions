@@ -8,9 +8,6 @@ import App from './App';
 
 const store = configureStore();
 
-store.dispatch(addSession({studentEmail: "mail@a.com"}))
-console.log(store.getState())
-
 const jsx = (
   <Provider store={store}>
     <App />
