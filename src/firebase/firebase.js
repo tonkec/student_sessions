@@ -24,15 +24,15 @@ export {firebase, db as default};
 // });
 
 // returns an array with objects
-db.ref('sessions') // where do we want to store it
-  .once('value')
-  .then((snapshot) => {
-    const sessions = [];
-    snapshot.forEach((child) => {
-      sessions.push({
-        id: child.key,
-        ...child.val()
-    });
-  });
-  console.log(sessions)
-});
+// db.ref('sessions') // where do we want to store it
+//   .once('value')
+//   .then((snapshot) => {
+//     const sessions = [];
+//     snapshot.forEach((child) => {
+//       sessions.push({
+//         id: child.key,
+//         ...child.val()
+//     });
+//   });
+//   console.log(sessions)
+// });

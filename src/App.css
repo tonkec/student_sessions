@@ -37,6 +37,12 @@ input {
   vertical-align: middle;
 }
 
+input:focus,
+input:active {
+  outline: none;
+  border: 2.5px solid #2ec4b6;
+}
+
 button {
   padding: 7px 15px;
   line-height: 25px;
