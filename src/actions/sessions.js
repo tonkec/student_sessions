@@ -25,3 +25,7 @@ export const addSession = (
     timestamp
   }
 });
+
+const addSessionToDb = () => {
+  
+}
