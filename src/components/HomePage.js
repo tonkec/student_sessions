@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import db from '../firebase/firebase';
-import {startGetSessions} from '../actions/sessions';
+import SessionsSummary from './SessionsSummary';
 
 class HomePage extends Component {
   render() {
     return (
       <div>
-        <h1> Your Current Sessions </h1>
+        <h1> Your Sessions </h1>
+        <SessionsSummary />
       </div>
     );
   }
