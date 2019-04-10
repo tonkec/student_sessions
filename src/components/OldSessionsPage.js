@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
-import '../App.css';
 import axios from 'axios';
-import { NavLink } from 'react-router-dom';
-import db from '../firebase/firebase';
-
 const SECRETKEY1 = process.env.REACT_APP_SECRETKEY1;
 const SECRETKEY2 = process.env.REACT_APP_SECRETKEY2;
-class OldSessionsPage extends Component {
+class OldSessionPage extends Component {
   constructor(props) {
      super(props);
      this.getSessions = this.getSessions.bind(this);
@@ -35,17 +31,10 @@ class OldSessionsPage extends Component {
   }
 
   componentDidMount(){
-    db.ref('sessions') // where do we want to store it
-      .once('value')
-      .then((snapshot) => {
-        const sessions = [];
-        snapshot.forEach((child) => {
-          sessions.push({
-            id: child.key,
-            ...child.val()
-        });
-      });
-    });
+    if (SECRETKEY1 === "" || SECRETKEY2 === "") {
+      alert("Please share your secrets with me! You need to add secret keys from api. More info in the comment in source code")
+      // Follow the steps here: https://stackoverflow.com/a/50457996/2504334
+    }
   }
 
   handleForm(e) {
@@ -104,7 +93,7 @@ class OldSessionsPage extends Component {
     return (
       <div className="App">
         <header className="App-header">
-           <h1> Get your sessions from Google API </h1>
+           <h1> Track your sessions with students </h1>
            <form onSubmit={this.handleForm}>
              <input type="email" placeholder="Email" name="email" required/>
              <input type="integer" placeholder="Month (integer)" name="month" required />
@@ -144,4 +133,4 @@ class OldSessionsPage extends Component {
   }
 }
 
-export default OldSessionsPage;
+export default OldSessionPage;

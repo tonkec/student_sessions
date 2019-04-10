@@ -29,3 +29,23 @@ export const addSessionToDb = (sessionData = {}) => {
     });
   }
 }
+
+export const getSessions = (sessions) => ({
+  type: "GET_SESSIONS",
+  sessions
+})
+
+export const startGetSessions = () => {
+  return (dispatch) => {
+    return db.ref('sessions').once('value').then((snapshot) => {
+      const sessions = [];
+      snapshot.forEach((child) => {
+        sessions.push({
+          id: child.key,
+          ...child.val()
+      });
+    });
+    dispatch(getSessions(sessions));
+  });
+}
+}

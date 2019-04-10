@@ -6,6 +6,8 @@ const sessionsReducer = (state = sessionsReducerDefaultState, action) => {
         ...state,
         action.session
       ];
+    case "GET_SESSIONS":
+      return action.sessions
   default:
       return state;
   }
