@@ -9,7 +9,6 @@ const sessionsReducer = (state = sessionsReducerDefaultState, action) => {
     case "GET_SESSIONS":
       return action.sessions
     case "REMOVE_SESSION":
-      console.log(action.id)
       return state.filter(({ id }) => id !== action.id);
   default:
       return state;

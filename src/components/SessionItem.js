@@ -1,11 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {removeSession} from '../actions/sessions';
+import {startRemoveSession} from '../actions/sessions';
 
 class SessionItem extends React.Component {
   handleClick = (e) => {
     e.preventDefault();
-    this.props.removeSession({ id: this.props.id });
+    this.props.startRemoveSession({ id: this.props.id });
   }
 
   render() {
@@ -14,7 +14,6 @@ class SessionItem extends React.Component {
       <div>
         <p style={{display: "inline-block", marginRight: "10px", marginBottom: "20px"}}>
           {studentEmail}
-          {console.log(this.props)}
         </p>
 
         <button
@@ -29,7 +28,7 @@ class SessionItem extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch, props) => ({
-  removeSession: (id) => dispatch(removeSession(id))
+  startRemoveSession: (id) => dispatch(startRemoveSession(id))
 });
 
 

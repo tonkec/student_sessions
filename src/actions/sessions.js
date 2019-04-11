@@ -43,11 +43,11 @@ export const startGetSessions = () => {
         sessions.push({
           id: child.key,
           ...child.val()
+        });
       });
-    });
     dispatch(getSessions(sessions));
-  });
-}
+    });
+  }
 }
 
 // store.dispatch(removeSession({id: "asdasd2"}))
@@ -56,3 +56,11 @@ export const removeSession = ({ id } = {}) => ({
   type: 'REMOVE_SESSION',
   id
 });
+
+export const startRemoveSession = ({id}) => {
+  return (dispatch) => {
+    return db.ref(`sessions/${id}`).remove().then(() => {
+      dispatch(removeSession({ id }))
+    })
+  }
+}
