@@ -64,3 +64,9 @@ export const startRemoveSession = ({id}) => {
     })
   }
 }
+
+export const editSession = (id, newData) => ({
+  type: 'EDIT_SESSION',
+  id,
+  newData
+});

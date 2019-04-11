@@ -3,9 +3,9 @@ import {connect} from 'react-redux';
 import {editSession} from '../actions/sessions';
 import SessionForm from './SessionForm';
 
-export class a extends React.Component {
-  onSubmit = () => {
-    console.log("save updated session to store")
+export class EditSessionPage extends React.Component {
+  onSubmit = (session) => {
+    this.props.dispatch(editSession(this.props.session.id, session))
   }
   render () {
     const {session} = this.props
@@ -26,4 +26,5 @@ const mapStateToProps = (state,props) => ({
   session: state.sessions.find((s) => s.id === props.match.params.id )
 });
 
-export default connect(mapStateToProps)(a);
+
+export default connect(mapStateToProps)(EditSessionPage);

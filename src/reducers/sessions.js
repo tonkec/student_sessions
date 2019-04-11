@@ -10,6 +10,17 @@ const sessionsReducer = (state = sessionsReducerDefaultState, action) => {
       return action.sessions
     case "REMOVE_SESSION":
       return state.filter(({ id }) => id !== action.id);
+    case "EDIT_EXPENSE":
+      return state.map((session) => {
+        if (session.id === action.id) {
+          return {
+            ...session,
+            ...action.newData
+          }
+        } else {
+          return session;
+        }
+      })
   default:
       return state;
   }
