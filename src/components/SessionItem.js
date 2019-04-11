@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {startRemoveSession} from '../actions/sessions';
+import { Link } from 'react-router-dom';
+
 
 class SessionItem extends React.Component {
   handleClick = (e) => {
@@ -9,15 +11,18 @@ class SessionItem extends React.Component {
   }
 
   render() {
-    const {studentEmail} = this.props
+    const {studentEmail, id} = this.props
     return(
       <div>
-        <p style={{display: "inline-block", marginRight: "10px", marginBottom: "20px"}}>
+        <p style={{display: "inline-block", marginBottom: "20px"}}>
           {studentEmail}
         </p>
 
+        <Link to={`/edit/${id}`} className="button">
+          Edit
+        </Link>
+
         <button
-          style={{display: "inline"}}
           onClick={this.handleClick}
         >
           Delete

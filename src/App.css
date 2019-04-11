@@ -43,15 +43,19 @@ input:active {
   border: 2.5px solid #2ec4b6;
 }
 
-button {
-  padding: 7px 15px;
-  line-height: 25px;
+button, .button {
+  padding: 0 15px;
+  height: 30px;
+  line-height: 30px;
   cursor: pointer;
   color: #fff;
   background-color: #2ec4b6;
   border: none;
   font-size: 1rem;;
   vertical-align: middle;
+  display: inline-block;
+  text-decoration: none;
+  margin-left: 10px;
 }
 
 h4 {
