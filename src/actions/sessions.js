@@ -49,3 +49,10 @@ export const startGetSessions = () => {
   });
 }
 }
+
+// store.dispatch(removeSession({id: "asdasd2"}))
+
+export const removeSession = ({ id } = {}) => ({
+  type: 'REMOVE_SESSION',
+  id
+});

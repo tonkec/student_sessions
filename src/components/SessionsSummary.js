@@ -20,10 +20,10 @@ const SessionsSummary = (props) => {
 }
 
 const mapStateToProps = (state) => {
- const totalSessions = selectSessions(state.sessions);
- return {
-   sessions: totalSessions
- }
+  const totalSessions = selectSessions(state.sessions);
+  return {
+     sessions: totalSessions
+   }
 }
 
 export default connect(mapStateToProps)(SessionsSummary);
