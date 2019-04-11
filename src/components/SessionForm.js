@@ -4,7 +4,7 @@ class SessionForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      studentEmail: props.studentEmail ? props.studentEmail : ''
+      studentEmail: props.session ? props.session.studentEmail : ''
     };
   }
 

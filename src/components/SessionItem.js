@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {startRemoveSession} from '../actions/sessions';
 import { Link } from 'react-router-dom';
 
-
 class SessionItem extends React.Component {
   handleClick = (e) => {
     e.preventDefault();

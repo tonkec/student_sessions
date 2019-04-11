@@ -35,6 +35,7 @@ input {
   line-height: 25px;
   font-size: .9rem;
   vertical-align: middle;
+  border: 1px solid #292929;
 }
 
 input:focus,
@@ -45,8 +46,8 @@ input:active {
 
 button, .button {
   padding: 0 15px;
-  height: 30px;
-  line-height: 30px;
+  height: 38px;
+  line-height: 38px;
   cursor: pointer;
   color: #fff;
   background-color: #2ec4b6;
