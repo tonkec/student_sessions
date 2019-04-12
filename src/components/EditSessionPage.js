@@ -13,7 +13,6 @@ export class EditSessionPage extends React.Component {
     return (
       <div>
         <h1> Edit Session </h1>
-        {console.log(this.props)}
         <SessionForm
           session={session}
           onSubmit={this.onSubmit}
