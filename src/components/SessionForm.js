@@ -30,7 +30,7 @@ class SessionForm extends Component {
             placeholder="Student's email address"
             autoFocus
           />
-          <button> Add </button>
+          <button> Submit </button>
         </form>
       </div>
     )

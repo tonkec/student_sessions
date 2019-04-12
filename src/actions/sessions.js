@@ -70,3 +70,11 @@ export const editSession = (id, newData) => ({
   id,
   newData
 });
+
+export const startEditSession = (id, newData) => {
+  return (dispatch) => {
+    return db.ref(`sessions/${id}`).update(newData).then(() => {
+      dispatch(editSession(id, newData))
+    })
+  }
+}

@@ -10,7 +10,7 @@ const sessionsReducer = (state = sessionsReducerDefaultState, action) => {
       return action.sessions
     case "REMOVE_SESSION":
       return state.filter(({ id }) => id !== action.id);
-    case "EDIT_EXPENSE":
+    case "EDIT_SESSION":
       return state.map((session) => {
         if (session.id === action.id) {
           return {
