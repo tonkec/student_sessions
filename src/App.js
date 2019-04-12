@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 import Header from './components/Header';
 import Dashboard from './components/Dashboard';
 import LoginPage from './components/LoginPage';
@@ -8,8 +9,10 @@ import EditSessionPage from './components/EditSessionPage';
 import OldSessionsPage from './components/OldSessionsPage';
 import NotFoundPage from './components/NotFoundPage';
 
+export const history = createBrowserHistory();
+
 const App = () => (
-  <BrowserRouter>
+  <Router history={history}>
     <div>
       <Header />
       <Switch>
@@ -21,7 +24,7 @@ const App = () => (
         <Route component={NotFoundPage} />
       </Switch>
     </div>
-  </BrowserRouter>
+  </Router>
 );
 
 export default App;

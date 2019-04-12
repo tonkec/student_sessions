@@ -6,7 +6,7 @@ import SessionForm from './SessionForm';
 export class EditSessionPage extends React.Component {
   onSubmit = (session) => {
     this.props.startEditSession(this.props.session.id, session)
-    this.props.history.push('/');
+    this.props.history.push('/dashboard');
   }
   render () {
     const {session} = this.props

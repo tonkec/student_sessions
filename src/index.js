@@ -7,6 +7,7 @@ import './App.css';
 import './index.css';
 import App from './App';
 import {firebase} from './firebase/firebase';
+import {history} from './App.js';
 
 const store = configureStore();
 
@@ -16,17 +17,28 @@ const jsx = (
   </Provider>
 )
 
+let hasRendered = false;
+
+const renderApp = () => {
+  if (!hasRendered) {
+    ReactDOM.render(jsx, document.getElementById('root'));
+    hasRendered = true;
+  }
+}
+
 firebase.auth().onAuthStateChanged((user) => {
-  // console.log(user)
   if (user) {
     console.log('log in');
+    store.dispatch(startGetSessions()).then(() => {
+      renderApp();
+      if (history.location.pathname === "/") {
+        history.push('/dashboard')
+      }
+    })
   } else {
-    console.log('log out');
+    renderApp();
+    history.push('/')
   }
 });
 
 ReactDOM.render(<p> Loading... </p>, document.getElementById('root'));
-
-store.dispatch(startGetSessions()).then(() => {
-  ReactDOM.render(jsx, document.getElementById('root'));
-})
