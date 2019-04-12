@@ -17,7 +17,7 @@ const jsx = (
 )
 
 firebase.auth().onAuthStateChanged((user) => {
-  console.log(user)
+  // console.log(user)
   if (user) {
     console.log('log in');
   } else {

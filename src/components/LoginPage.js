@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {startLogin} from '../actions/auth';
 
-export const LoginPage = ({startLogin}) => {
+const LoginPage = ({startLogin}) => {
   return (
     <div>
       <h1> Login with Google </h1>
