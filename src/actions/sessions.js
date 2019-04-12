@@ -21,7 +21,7 @@ export const addSessionToDb = (sessionData = {}) => {
     // studentEmail: "value from input"
 
     // console.log(sessionData)
-    db.ref('sessions').push(session).then((ref) => {
+    return db.ref('sessions').push(session).then((ref) => {
       dispatch(addSession({
         id: ref.key,
         ...session
@@ -39,13 +39,15 @@ export const startGetSessions = () => {
   return (dispatch) => {
     return db.ref('sessions').once('value').then((snapshot) => {
       const sessions = [];
-      snapshot.forEach((child) => {
+
+      snapshot.forEach((childSnapshot) => {
         sessions.push({
-          id: child.key,
-          ...child.val()
+          id: childSnapshot.key,
+          ...childSnapshot.val()
         });
       });
-    dispatch(getSessions(sessions));
+
+      dispatch(getSessions(sessions));
     });
   }
 }

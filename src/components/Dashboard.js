@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SessionsSummary from './SessionsSummary';
 
-class HomePage extends Component {
+class Dashboard extends Component {
   render() {
     return (
       <div>
@@ -12,4 +12,4 @@ class HomePage extends Component {
   }
 }
 
-export default HomePage;
+export default Dashboard;
