@@ -9,22 +9,20 @@ import EditSessionPage from '../components/EditSessionPage';
 import OldSessionsPage from '../components/OldSessionsPage';
 import NotFoundPage from '../components/NotFoundPage';
 import PrivateRoute from "./PrivateRoute";
+import PublicRoute from "./PublicRoute";
 
 export const history = createBrowserHistory();
 
 const AppRouter = () => (
   <Router history={history}>
-    <div>
-      <Header />
-      <Switch>
-        <Route path="/" component={LoginPage} exact={true} />
-        <PrivateRoute path="/dashboard" component={Dashboard} />
-        <PrivateRoute path="/create" component={AddSessionPage} />
-        <PrivateRoute path="/edit/:id" component={EditSessionPage} />
-        <Route path="/oldSessions" component={OldSessionsPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
-    </div>
+    <Switch>
+      <PublicRoute path="/" component={LoginPage} exact={true} />
+      <PrivateRoute path="/dashboard" component={Dashboard} />
+      <PrivateRoute path="/addSession" component={AddSessionPage} />
+      <PrivateRoute path="/edit/:id" component={EditSessionPage} />
+      <Route path="/oldSessions" component={OldSessionsPage} />
+      <Route component={NotFoundPage} />
+    </Switch>
   </Router>
 );
 
