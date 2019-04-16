@@ -15,13 +15,14 @@ export const addSession = (session) => ({
 });
 
 export const addSessionToDb = (sessionData = {}) => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
+    const userId = getState().auth.uid;
     const { studentEmail = ""} = sessionData
     const session =  { studentEmail }
     // studentEmail: "value from input"
 
     // console.log(sessionData)
-    return db.ref('sessions').push(session).then((ref) => {
+    return db.ref(`users/${userId}/sessions`).push(session).then((ref) => {
       dispatch(addSession({
         id: ref.key,
         ...session
@@ -36,8 +37,9 @@ export const getSessions = (sessions) => ({
 })
 
 export const startGetSessions = () => {
-  return (dispatch) => {
-    return db.ref('sessions').once('value').then((snapshot) => {
+  return (dispatch, getState) => {
+    const userId = getState().auth.uid;
+    return db.ref(`users/${userId}/sessions`).once('value').then((snapshot) => {
       const sessions = [];
 
       snapshot.forEach((childSnapshot) => {
@@ -60,8 +62,9 @@ export const removeSession = ({ id } = {}) => ({
 });
 
 export const startRemoveSession = ({id}) => {
-  return (dispatch) => {
-    return db.ref(`sessions/${id}`).remove().then(() => {
+  return (dispatch, getState) => {
+    const userId = getState().auth.uid;
+    return db.ref(`users/${userId}/sessions/${id}`).remove().then(() => {
       dispatch(removeSession({ id }))
     })
   }
@@ -74,8 +77,9 @@ export const editSession = (id, newData) => ({
 });
 
 export const startEditSession = (id, newData) => {
-  return (dispatch) => {
-    return db.ref(`sessions/${id}`).update(newData).then(() => {
+  return (dispatch, getState) => {
+    const userId = getState().auth.uid;
+    return db.ref(`users/${userId}/sessions/${id}`).update(newData).then(() => {
       dispatch(editSession(id, newData))
     })
   }
