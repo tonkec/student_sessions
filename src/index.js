@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 import { startGetSessions } from './actions/sessions';
+import {login, logout} from './actions/auth';
 import './App.css';
 import './index.css';
 import App from './App';
@@ -28,7 +29,7 @@ const renderApp = () => {
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
-    console.log('log in');
+    store.dispatch(login(user.uid))
     store.dispatch(startGetSessions()).then(() => {
       renderApp();
       if (history.location.pathname === "/") {
@@ -36,6 +37,7 @@ firebase.auth().onAuthStateChanged((user) => {
       }
     })
   } else {
+    store.dispatch(logout());
     renderApp();
     history.push('/')
   }
