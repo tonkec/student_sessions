@@ -6,15 +6,14 @@ import { startGetSessions } from './actions/sessions';
 import {login, logout} from './actions/auth';
 import './App.css';
 import './index.css';
-import App from './App';
+import AppRouter, {history} from './routers/AppRouter';
 import {firebase} from './firebase/firebase';
-import {history} from './App.js';
 
 const store = configureStore();
 
 const jsx = (
   <Provider store={store}>
-    <App />
+    <AppRouter />
   </Provider>
 )
 
