@@ -1,7 +1,6 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
-import Header from '../components/Header';
 import Dashboard from '../components/Dashboard';
 import LoginPage from '../components/LoginPage';
 import AddSessionPage from '../components/AddSessionPage';
