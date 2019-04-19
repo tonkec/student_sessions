@@ -11,13 +11,19 @@ const typeOptions = [
   { value: 'no show', label: 'no show'}
 ];
 
+const progressOptions = [
+  { value: "Excellent - It's going great.", label: "Excellent - It's going great." },
+  { value: "Average - The student is moving at an acceptable pace.", label: "Average - The student is moving at an acceptable pace."},
+  { value: "I'm worried about this student's progress.", label: "I'm worried about this student's progress."}
+]
+
 class SessionForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       studentEmail: props.session ? props.session.studentEmail : '',
       type: null,
-
+      progress: null
     };
   }
 
@@ -30,16 +36,21 @@ class SessionForm extends Component {
     e.preventDefault();
     this.props.onSubmit({
       studentEmail: this.state.studentEmail,
-      type: this.state.type
+      type: this.state.type,
+      progress: this.state.progress
     })
   }
 
-  handleChange = (type) => {
+  onSelectType = (type) => {
    this.setState({ type });
- }
+  }
+
+  onSelectProgress = (progress) => {
+    this.setState({ progress });
+  }
 
   render() {
-    const { type } = this.state;
+    const { type, progress } = this.state;
 
     return(
       <div>
@@ -53,10 +64,20 @@ class SessionForm extends Component {
             autoFocus
           />
 
+          <h2> Select type of session </h2>
+
           <Select
             value={type}
-            onChange={this.handleChange}
+            onChange={this.onSelectType}
             options={typeOptions}
+          />
+
+          <h2> Select type of progress </h2>
+
+          <Select
+            value={progress}
+            onChange={this.onSelectProgress}
+            options={progressOptions}
           />
 
           <button> Submit </button>
