@@ -23,7 +23,8 @@ class SessionForm extends Component {
     this.state = {
       studentEmail: props.session ? props.session.studentEmail : '',
       type: null,
-      progress: null
+      progress: null,
+      date: ''
     };
   }
 
@@ -32,13 +33,9 @@ class SessionForm extends Component {
     this.setState({studentEmail})
   }
 
-  onSubmit = (e) => {
-    e.preventDefault();
-    this.props.onSubmit({
-      studentEmail: this.state.studentEmail,
-      type: this.state.type,
-      progress: this.state.progress
-    })
+  onDateChange = (e) => {
+    const date = e.target.value;
+    this.setState({date})
   }
 
   onSelectType = (type) => {
@@ -49,8 +46,18 @@ class SessionForm extends Component {
     this.setState({ progress });
   }
 
+  onSubmit = (e) => {
+    e.preventDefault();
+    this.props.onSubmit({
+      studentEmail: this.state.studentEmail,
+      type: this.state.type,
+      progress: this.state.progress,
+      date: this.state.date
+    })
+  }
+
   render() {
-    const { type, progress } = this.state;
+    const { type, progress, studentEmail, date } = this.state;
 
     return(
       <div>
@@ -58,10 +65,17 @@ class SessionForm extends Component {
           <input
             type="text"
             name="email"
-            value={this.state.studentEmail}
+            value={studentEmail}
             onChange={this.onStudentEmailChange}
             placeholder="Student's email address"
             autoFocus
+          />
+
+          <input
+            type="date"
+            name="date"
+            value={date}
+            onChange={this.onDateChange}
           />
 
           <h2> Select type of session </h2>
