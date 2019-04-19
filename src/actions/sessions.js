@@ -17,12 +17,18 @@ export const addSession = (session) => ({
 export const addSessionToDb = (sessionData = {}) => {
   return (dispatch, getState) => {
     const userId = getState().auth.uid;
-    const { studentEmail = ""} = sessionData
-    const session =  { studentEmail }
-    // studentEmail: "value from input"
+    const {
+      studentEmail = "",
+      date = "",
+      type = "",
+      progress = "",
+      note = "",
+      createdAt = 0
+    } = sessionData
+    const session =  { studentEmail, date, type, progress, note, createdAt }
 
-    // console.log(sessionData)
     return db.ref(`users/${userId}/sessions`).push(session).then((ref) => {
+      console.log(session)
       dispatch(addSession({
         id: ref.key,
         ...session
