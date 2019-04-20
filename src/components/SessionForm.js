@@ -25,7 +25,7 @@ class SessionForm extends Component {
     this.state = {
       studentEmail: props.session ? props.session.studentEmail : '',
       type: props.session ? props.session.type : null,
-      progress: null,
+      progress: props.session ? props.session.progress : null,
       date: props.session ? props.session.date : '',
       note: props.session ? props.session.note : '',
       minute: props.session ? props.session.duration.minutes : '',
@@ -99,7 +99,6 @@ class SessionForm extends Component {
 
   render() {
     const { type, progress, studentEmail, date, note, minute, hour, second, description } = this.state;
-    console.log(type)
     return(
       <div>
         <form onSubmit={this.onSubmit}>
@@ -160,10 +159,9 @@ class SessionForm extends Component {
           <h2> Select type of session </h2>
 
           <Select
-            value={type}
             onChange={this.onSelectType}
             options={typeOptions}
-            defaultValue={"value"}
+            value={type}
             required
           />
 
