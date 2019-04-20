@@ -109,6 +109,7 @@ class SessionForm extends Component {
             onChange={this.onStudentEmailChange}
             placeholder="Student's email address"
             autoFocus
+            required
           />
 
           <input
@@ -116,6 +117,7 @@ class SessionForm extends Component {
             name="date"
             value={date}
             onChange={this.onDateChange}
+            required
           />
 
           <input
@@ -127,6 +129,7 @@ class SessionForm extends Component {
             max="59"
             maxLength="2"
             placeholder="h"
+            required
           />
 
           <input
@@ -138,6 +141,7 @@ class SessionForm extends Component {
             max="59"
             maxLength="2"
             placeholder="m"
+            required
           />
 
           <input
@@ -149,6 +153,7 @@ class SessionForm extends Component {
             max="59"
             maxLength="2"
             placeholder="s"
+            required
           />
 
           <h2> Select type of session </h2>
@@ -157,6 +162,7 @@ class SessionForm extends Component {
             value={type}
             onChange={this.onSelectType}
             options={typeOptions}
+            required
           />
 
           <h2> Select type of progress </h2>
@@ -165,19 +171,22 @@ class SessionForm extends Component {
             value={progress}
             onChange={this.onSelectProgress}
             options={progressOptions}
+            required
           />
 
-          <textarea
-            placeholder="Extra note for student care"
-            value={note}
-            onChange={this.onNoteChange}
-          >
-          </textarea>
 
           <textarea
             placeholder="Describe what you covered in the session"
             value={description}
             onChange={this.onDescriptionChange}
+            required
+          >
+          </textarea>
+
+          <textarea
+            placeholder="Extra note for student care"
+            value={note}
+            onChange={this.onNoteChange}
           >
           </textarea>
 
