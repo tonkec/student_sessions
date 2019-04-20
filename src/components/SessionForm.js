@@ -21,16 +21,17 @@ const progressOptions = [
 class SessionForm extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       studentEmail: props.session ? props.session.studentEmail : '',
-      type: null,
+      type: props.session ? props.session.type : null,
       progress: null,
-      date: '',
-      note: '',
-      minute: '',
-      hour: '',
-      second: '',
-      description: '',
+      date: props.session ? props.session.date : '',
+      note: props.session ? props.session.note : '',
+      minute: props.session ? props.session.duration.minutes : '',
+      hour:  props.session ? props.session.duration.hours : '',
+      second: props.session ? props.session.duration.seconds : '',
+      description: props.session ? props.session.description : '',
       createdAt: moment().format('MMMM Do YYYY, h:mm:ss a')
     };
   }
@@ -82,8 +83,8 @@ class SessionForm extends Component {
     e.preventDefault();
     this.props.onSubmit({
       studentEmail: this.state.studentEmail,
-      type: this.state.type,
-      progress: this.state.progress,
+      type: this.state.type.value,
+      progress: this.state.progress.value,
       date: this.state.date,
       note: this.state.note,
       description: this.state.description,
@@ -98,7 +99,7 @@ class SessionForm extends Component {
 
   render() {
     const { type, progress, studentEmail, date, note, minute, hour, second, description } = this.state;
-
+    console.log(type)
     return(
       <div>
         <form onSubmit={this.onSubmit}>
@@ -162,6 +163,7 @@ class SessionForm extends Component {
             value={type}
             onChange={this.onSelectType}
             options={typeOptions}
+            defaultValue={"value"}
             required
           />
 
@@ -173,7 +175,6 @@ class SessionForm extends Component {
             options={progressOptions}
             required
           />
-
 
           <textarea
             placeholder="Describe what you covered in the session"
