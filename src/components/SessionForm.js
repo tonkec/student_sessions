@@ -74,7 +74,7 @@ class SessionForm extends Component {
   }
 
   onDescriptionChange = (e) => {
-    const description = e.targer.value;
+    const description = e.target.value;
     this.setState({description})
   }
 
