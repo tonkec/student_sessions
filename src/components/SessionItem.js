@@ -10,11 +10,11 @@ class SessionItem extends React.Component {
   }
 
   render() {
-    const {studentEmail, id} = this.props
+    const {studentEmail, id, createdAt} = this.props
     return(
       <div>
         <p style={{display: "inline-block", marginBottom: "20px"}}>
-          {studentEmail}
+          {studentEmail} | {createdAt}
         </p>
 
         <Link to={`/edit/${id}`} className="button">

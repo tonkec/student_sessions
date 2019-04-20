@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
+import moment from 'moment';
 
 const typeOptions = [
   { value: 'intro', label: 'intro' },
@@ -29,7 +30,8 @@ class SessionForm extends Component {
       minute: '',
       hour: '',
       second: '',
-      description: ''
+      description: '',
+      createdAt: moment().format('MMMM Do YYYY, h:mm:ss a')
     };
   }
 
@@ -89,7 +91,8 @@ class SessionForm extends Component {
         hours: this.state.hour,
         minutes: this.state.minute,
         seconds: this.state.second
-      }
+      },
+      createdAt: this.state.createdAt
     })
   }
 
