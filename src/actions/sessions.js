@@ -23,9 +23,10 @@ export const addSessionToDb = (sessionData = {}) => {
       type = "",
       progress = "",
       note = "",
+      duration = "",
       createdAt = 0
     } = sessionData
-    const session =  { studentEmail, date, type, progress, note, createdAt }
+    const session =  { studentEmail, date, type, progress, note, duration, createdAt }
 
     return db.ref(`users/${userId}/sessions`).push(session).then((ref) => {
       console.log(session)

@@ -24,7 +24,11 @@ class SessionForm extends Component {
       studentEmail: props.session ? props.session.studentEmail : '',
       type: null,
       progress: null,
-      date: ''
+      date: '',
+      note: '',
+      minute: '',
+      hour: '',
+      second: ''
     };
   }
 
@@ -46,18 +50,44 @@ class SessionForm extends Component {
     this.setState({ progress });
   }
 
+  onNoteChange = (e) => {
+    const note = e.target.value;
+    this.setState({note})
+  }
+
+  onMinuteChange = (e) => {
+    const minute = e.target.value;
+    this.setState({minute})
+  }
+
+  onHourChange = (e) => {
+    const hour = e.target.value;
+    this.setState({hour})
+  }
+
+  onSecondChange = (e) => {
+    const second = e.target.value;
+    this.setState({second})
+  }
+
   onSubmit = (e) => {
     e.preventDefault();
     this.props.onSubmit({
       studentEmail: this.state.studentEmail,
       type: this.state.type,
       progress: this.state.progress,
-      date: this.state.date
+      date: this.state.date,
+      note: this.state.note,
+      duration: {
+        hours: this.state.hour,
+        minutes: this.state.minute,
+        seconds: this.state.second
+      }
     })
   }
 
   render() {
-    const { type, progress, studentEmail, date } = this.state;
+    const { type, progress, studentEmail, date, note, minute, hour, second } = this.state;
 
     return(
       <div>
@@ -78,6 +108,39 @@ class SessionForm extends Component {
             onChange={this.onDateChange}
           />
 
+          <input
+            type="number"
+            name="hour"
+            value={hour}
+            onChange={this.onHourChange}
+            min="0"
+            max="59"
+            maxLength="2"
+            placeholder="h"
+          />
+
+          <input
+            type="number"
+            name="minute"
+            value={minute}
+            onChange={this.onMinuteChange}
+            min="0"
+            max="59"
+            maxLength="2"
+            placeholder="m"
+          />
+
+          <input
+            type="number"
+            name="second"
+            value={second}
+            onChange={this.onSecondChange}
+            min="0"
+            max="59"
+            maxLength="2"
+            placeholder="s"
+          />
+
           <h2> Select type of session </h2>
 
           <Select
@@ -93,6 +156,13 @@ class SessionForm extends Component {
             onChange={this.onSelectProgress}
             options={progressOptions}
           />
+
+          <textarea
+            placeholder="Describe what you covered in the session"
+            value={note}
+            onChange={this.onNoteChange}
+          >
+          </textarea>
 
           <button> Submit </button>
         </form>
