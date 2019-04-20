@@ -28,7 +28,8 @@ class SessionForm extends Component {
       note: '',
       minute: '',
       hour: '',
-      second: ''
+      second: '',
+      description: ''
     };
   }
 
@@ -70,6 +71,11 @@ class SessionForm extends Component {
     this.setState({second})
   }
 
+  onDescriptionChange = (e) => {
+    const description = e.targer.value;
+    this.setState({description})
+  }
+
   onSubmit = (e) => {
     e.preventDefault();
     this.props.onSubmit({
@@ -78,6 +84,7 @@ class SessionForm extends Component {
       progress: this.state.progress,
       date: this.state.date,
       note: this.state.note,
+      description: this.state.description,
       duration: {
         hours: this.state.hour,
         minutes: this.state.minute,
@@ -87,7 +94,7 @@ class SessionForm extends Component {
   }
 
   render() {
-    const { type, progress, studentEmail, date, note, minute, hour, second } = this.state;
+    const { type, progress, studentEmail, date, note, minute, hour, second, description } = this.state;
 
     return(
       <div>
@@ -158,9 +165,16 @@ class SessionForm extends Component {
           />
 
           <textarea
-            placeholder="Describe what you covered in the session"
+            placeholder="Extra note for student care"
             value={note}
             onChange={this.onNoteChange}
+          >
+          </textarea>
+
+          <textarea
+            placeholder="Describe what you covered in the session"
+            value={description}
+            onChange={this.onDescriptionChange}
           >
           </textarea>
 
