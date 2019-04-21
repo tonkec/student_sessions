@@ -47,7 +47,12 @@ class SessionForm extends Component {
   }
 
   onSelectType = (type) => {
+    console.log(type)
    this.setState({ type });
+  }
+
+  setTypeValue = (type) => {
+    console.log(type)
   }
 
   onSelectProgress = (progress) => {
@@ -81,10 +86,11 @@ class SessionForm extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    this.props.onSubmit({
+    
+    let newData = {
       studentEmail: this.state.studentEmail,
-      type: this.state.type.value,
-      progress: this.state.progress.value,
+      type: this.state.type,
+      progress: this.state.progress,
       date: this.state.date,
       note: this.state.note,
       description: this.state.description,
@@ -94,7 +100,9 @@ class SessionForm extends Component {
         seconds: this.state.second
       },
       createdAt: this.state.createdAt
-    })
+    }
+
+    this.props.onSubmit(newData)
   }
 
   render() {
@@ -161,14 +169,14 @@ class SessionForm extends Component {
           <Select
             onChange={this.onSelectType}
             options={typeOptions}
-            value={type}
+            defaultValue={{ label: type, value: type }}
             required
           />
 
           <h2> Select type of progress </h2>
 
           <Select
-            value={progress}
+            defaultValue={{ label: progress, value: progress }}
             onChange={this.onSelectProgress}
             options={progressOptions}
             required
