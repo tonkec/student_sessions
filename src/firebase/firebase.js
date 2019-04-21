@@ -1,6 +1,5 @@
 import firebase from 'firebase';
 const APIKEY = process.env.REACT_APP_FIREBASE_API_KEY;
-console.log(APIKEY)
 const DOMAIN = process.env.REACT_APP_FIREBASE_AUTH_DOMAIN;
 const DB_URL = process.env.REACT_APP_FIREBASE_DB_URL;
 const PROJECT_ID = process.env.REACT_APP_FIREBASE_PROJECT_ID;
