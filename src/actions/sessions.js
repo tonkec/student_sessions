@@ -1,14 +1,5 @@
 import db from '../firebase/firebase';
 
-// studentEmail = "default",
-// duration = "",
-// type = "",
-// progress = "",
-// description = "",
-// note = "",
-// count = 0,
-// timestamp = 0
-
 export const addSession = (session) => ({
   type: "ADD_SESSION",
   session
