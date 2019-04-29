@@ -86,11 +86,11 @@ class SessionForm extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    
+
     let newData = {
       studentEmail: this.state.studentEmail,
-      type: this.state.type,
-      progress: this.state.progress,
+      type: this.state.type.value,
+      progress: this.state.progress.value,
       date: this.state.date,
       note: this.state.note,
       description: this.state.description,
