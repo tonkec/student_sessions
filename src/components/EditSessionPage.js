@@ -9,12 +9,11 @@ export class EditSessionPage extends React.Component {
     this.props.history.push('/dashboard');
   }
   render () {
-    const {session} = this.props
     return (
       <div>
         <h1> Edit Session </h1>
         <SessionForm
-          session={session}
+          session={this.props.session}
           onSubmit={this.onSubmit}
         />
       </div>

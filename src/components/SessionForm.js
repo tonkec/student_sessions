@@ -21,7 +21,6 @@ const progressOptions = [
 class SessionForm extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       studentEmail: props.session ? props.session.studentEmail : '',
       type: props.session ? props.session.type : null,
@@ -47,15 +46,11 @@ class SessionForm extends Component {
   }
 
   onSelectType = (type) => {
-   this.setState({ type });
-  }
-
-  setTypeValue = (type) => {
-    console.log(type)
+   this.setState({ type: type.value });
   }
 
   onSelectProgress = (progress) => {
-    this.setState({ progress });
+    this.setState({ progress: progress.value });
   }
 
   onNoteChange = (e) => {
@@ -88,8 +83,8 @@ class SessionForm extends Component {
 
     let newData = {
       studentEmail: this.state.studentEmail,
-      type: this.state.type.value,
-      progress: this.state.progress.value,
+      type: this.state.type,
+      progress: this.state.progress,
       date: this.state.date,
       note: this.state.note,
       description: this.state.description,
