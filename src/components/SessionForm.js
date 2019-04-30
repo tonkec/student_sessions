@@ -47,7 +47,6 @@ class SessionForm extends Component {
   }
 
   onSelectType = (type) => {
-    console.log(type)
    this.setState({ type });
   }
 

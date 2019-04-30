@@ -8,6 +8,7 @@ const AddSessionPage = (props) => {
     <div>
       <h1> Add New Session </h1>
       <SessionForm onSubmit={(session) => {
+        console.log(session)
         props.dispatch(addSessionToDb(session));
         props.history.push('/dashboard');
       }} />

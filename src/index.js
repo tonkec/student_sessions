@@ -8,7 +8,6 @@ import './App.css';
 import './index.css';
 import AppRouter, {history} from './routers/AppRouter';
 import {firebase} from './firebase/firebase';
-
 const store = configureStore();
 
 const jsx = (

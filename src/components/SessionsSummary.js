@@ -10,9 +10,12 @@ const SessionsSummary = (props) => {
       props.sessions.length === 0 ? (
         <p>You don't have any sessions</p>
       ) : (
-          props.sessions.map((session) => {
-            return <SessionItem key={session.id} {...session} />;
-          })
+          <div>
+            <b> {props.sessions.length} </b>
+            {props.sessions.map((session) => {
+              return <SessionItem key={session.id} {...session} />;
+            })}
+          </div>
         )
       }
     </div>

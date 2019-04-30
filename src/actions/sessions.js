@@ -1,14 +1,5 @@
 import db from '../firebase/firebase';
 
-// studentEmail = "default",
-// duration = "",
-// type = "",
-// progress = "",
-// description = "",
-// note = "",
-// count = 0,
-// timestamp = 0
-
 export const addSession = (session) => ({
   type: "ADD_SESSION",
   session
@@ -29,13 +20,13 @@ export const addSessionToDb = (sessionData = {}) => {
     } = sessionData
     const session =  { studentEmail, date, type, progress, note, description, duration, createdAt }
 
-    return db.ref(`users/${userId}/sessions`).push(session).then((ref) => {
-      console.log(session)
-      dispatch(addSession({
-        id: ref.key,
-        ...session
-      }))
-    });
+        return db.ref(`users/${userId}/sessions`).push(session).then((ref) => {
+          dispatch(addSession({
+            id: ref.key,
+            ...session
+          }))
+        });
+
   }
 }
 
