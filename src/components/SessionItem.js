@@ -16,7 +16,7 @@ class SessionItem extends React.Component {
       <div className="sessionCard">
         <span> <b>{i} </b></span>
         <p style={{display: "inline-block"}}>
-          {studentEmail} | {moment(createdAt).format("MM Do YY', h:mm:s")} | {type} | {progress} | {description} | {duration.hours} | {duration.minutes} | {duration.seconds}
+          {studentEmail} | {moment(createdAt).format("MM Do YY', h:mm:s A")} | {type} | {progress} | {description} | {duration.hours} | {duration.minutes} | {duration.seconds}
         </p>
 
         <Link to={`/edit/${id}`} className="button">
