@@ -13,3 +13,8 @@ export const sortAscending = () => ({
 export const sortDescending = () => ({
   type: 'SORT_DESCENDING'
 });
+
+export const setTextFilter = (text = '') => ({
+  type: 'SET_TEXT_FILTER',
+  text
+});

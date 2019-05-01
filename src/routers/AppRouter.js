@@ -14,6 +14,7 @@ export const history = createBrowserHistory();
 
 const AppRouter = () => (
   <Router history={history}>
+    <div className="container">
     <Switch>
       <PublicRoute path="/" component={LoginPage} exact={true} />
       <PrivateRoute path="/dashboard" component={Dashboard} />
@@ -22,6 +23,7 @@ const AppRouter = () => (
       <Route path="/oldSessions" component={OldSessionsPage} />
       <Route component={NotFoundPage} />
     </Switch>
+    </div>
   </Router>
 );
 

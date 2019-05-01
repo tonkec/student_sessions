@@ -13,7 +13,7 @@ const SessionsSummary = (props) => {
           <div>
             {props.sessions.map((session, i) => {
               return (
-                <SessionItem i={i} key={session.id} {...session} />
+                <SessionItem key={session.id} {...session} />
               )
             })}
           </div>

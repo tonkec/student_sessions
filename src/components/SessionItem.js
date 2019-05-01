@@ -14,17 +14,17 @@ class SessionItem extends React.Component {
     const {studentEmail, id, createdAt, description, type, progress, duration, i} = this.props;
     return(
       <div className="sessionCard">
-        <span> <b>{i} </b></span>
         <p style={{display: "inline-block"}}>
           {studentEmail} | {moment(createdAt).format("MM Do YY', h:mm:s A")} | {type} | {progress} | {description} | {duration.hours} | {duration.minutes} | {duration.seconds}
         </p>
 
-        <Link to={`/edit/${id}`} className="button">
+        <Link to={`/edit/${id}`} className="button m-l-0">
           Edit
         </Link>
 
         <button
           onClick={this.handleClick}
+          className="button"
         >
           Delete
         </button>

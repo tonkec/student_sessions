@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {sortByDate, sortByEmail, sortAscending, sortDescending} from '../actions/filters';
+import {sortByDate, sortByEmail, sortAscending, sortDescending, setTextFilter} from '../actions/filters';
 
 class SessionsFilters extends React.Component {
   sortByEmail = () => {
@@ -19,14 +19,24 @@ class SessionsFilters extends React.Component {
     this.props.sortDescending();
   }
 
+  filterByText = (e) => {
+    this.props.filterByText(e.target.value);
+  }
+
   render () {
     return (
-      <div>
-        <p> Sort By </p>
-        <button onClick={this.sortByEmail}> Sort by Email </button>
-        <button onClick={this.sortByDate}> Sort by Date </button>
-        <button onClick={this.sortAscending}> Sort Ascending </button>
-        <button onClick={this.sortDescending}> Sort Descending </button>
+      <div className="flex">
+        <button onClick={this.sortByEmail} className="m-l-0 button btn-filter"> Sort by Email </button>
+        <button onClick={this.sortByDate} className="button btn-filter"> Sort by Date </button>
+        <button onClick={this.sortAscending} className="button btn-filter"> Sort Ascending </button>
+        <button onClick={this.sortDescending} className="button btn-filter"> Sort Descending </button>
+        <input
+          type="text"
+          placeholder="Search by keyword"
+          value={this.props.filters.text}
+          onChange={this.filterByText}
+          className="filter"
+        />
       </div>
     )
   }
@@ -40,7 +50,8 @@ const mapDispatchToProps = (dispatch) => ({
   sortByDate: () => dispatch(sortByDate()),
   sortByEmail: () => dispatch(sortByEmail()),
   sortAscending: () => dispatch(sortAscending()),
-  sortDescending: () => dispatch(sortDescending())
+  sortDescending: () => dispatch(sortDescending()),
+  filterByText: (text) => dispatch(setTextFilter(text))
 })
 
 export default connect (mapStateToProps, mapDispatchToProps)(SessionsFilters);

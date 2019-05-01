@@ -1,6 +1,7 @@
 const filtersReducerDefaultState = {
   sortBy: "date",
-  sortDirection: "ascending"
+  sortDirection: "ascending",
+  text: ""
 };
 
 const filtersReducer = (state = filtersReducerDefaultState, action) => {
@@ -25,6 +26,11 @@ const filtersReducer = (state = filtersReducerDefaultState, action) => {
         ...state,
         sortDirection: "descending"
       }
+    case "SET_TEXT_FILTER":
+      return {
+        ...state,
+        text: action.text
+    }
     default:
       return state;
   }

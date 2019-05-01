@@ -1,13 +1,13 @@
-
-import moment from 'moment';
-let d = moment().format('YYYY MM DD');
-console.log(d)
-
-
-export default(sessions, {sortBy, sortDirection}) => {
+export default(sessions, {sortBy, sortDirection, text}) => {
   return sessions.filter((session) => {
     const studentEmail = session.studentEmail ? session.studentEmail : "no email provided";
-    return studentEmail;
+    const textMatch = session.description.toLowerCase().includes(text.toLowerCase()) ||
+    session.type.toLowerCase().includes(text.toLowerCase()) ||
+    session.progress.toLowerCase().includes(text.toLowerCase()) ||
+    session.note.toLowerCase().includes(text.toLowerCase()) ||
+    session.studentEmail.toLowerCase().includes(text.toLowerCase()) ;
+
+    return studentEmail && textMatch;
   }).sort((a,b) => {
     if (sortBy === 'date') {
 
@@ -24,7 +24,7 @@ export default(sessions, {sortBy, sortDirection}) => {
       } else if (sortDirection === "descending") {
         return a.studentEmail > b.studentEmail ? -1 : 1;
       }
-      
+
     }
   })
 }

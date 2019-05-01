@@ -112,6 +112,7 @@ class SessionForm extends Component {
             placeholder="Student's email address"
             autoFocus
             required
+            className="m-l-0"
           />
 
           <input
@@ -181,6 +182,8 @@ class SessionForm extends Component {
             value={description}
             onChange={this.onDescriptionChange}
             required
+            className="textarea"
+
           >
           </textarea>
 
@@ -188,10 +191,11 @@ class SessionForm extends Component {
             placeholder="Extra note for student care"
             value={note}
             onChange={this.onNoteChange}
+            className="textarea"
           >
           </textarea>
 
-          <button> Submit </button>
+          <button className="m-l-0 button btn-form"> Submit </button>
         </form>
       </div>
     )
