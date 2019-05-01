@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {startRemoveSession} from '../actions/sessions';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 
 class SessionItem extends React.Component {
   handleClick = (e) => {
@@ -10,11 +11,12 @@ class SessionItem extends React.Component {
   }
 
   render() {
-    const {studentEmail, id, createdAt, description, type, progress, duration} = this.props
+    const {studentEmail, id, createdAt, description, type, progress, duration, i} = this.props;
     return(
-      <div>
-        <p style={{display: "inline-block", marginBottom: "20px"}}>
-          {studentEmail} | {createdAt} | {type} | {progress} | {description} | {duration.hours} | {duration.minutes} | {duration.seconds}
+      <div className="sessionCard">
+        <span> <b>{i} </b></span>
+        <p style={{display: "inline-block"}}>
+          {studentEmail} | {moment(createdAt).format("MM Do YY', h:mm:s")} | {type} | {progress} | {description} | {duration.hours} | {duration.minutes} | {duration.seconds}
         </p>
 
         <Link to={`/edit/${id}`} className="button">
