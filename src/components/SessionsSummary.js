@@ -8,7 +8,7 @@ const SessionsSummary = (props) => {
     <div>
       {
       props.sessions.length === 0 ? (
-        <p>You don't have any sessions</p>
+        <p>No sessions</p>
       ) : (
           <div>
             {props.sessions.map((session, i) => {

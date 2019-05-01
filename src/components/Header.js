@@ -5,10 +5,10 @@ import {startLogout} from '../actions/auth';
 
 const Header = ({startLogout}) => (
   <header>
-    <NavLink to="/dashboard"> Dashboard | </NavLink>
-    <NavLink to="/addSession" activeClassName="is-active">Add New | </NavLink>
+    <NavLink to="/dashboard"> Dashboard </NavLink>
+    <NavLink to="/addSession" activeClassName="is-active">Add New </NavLink>
     <NavLink to='/oldSessions'> Google Api Sessions </NavLink>
-    <button onClick={startLogout}> Log out </button>
+    <button onClick={startLogout} className="pull-right"> Log out </button>
   </header>
 )
 

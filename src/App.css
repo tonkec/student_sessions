@@ -1,3 +1,12 @@
+header {
+  padding: 10px 0;
+}
+
+header a {
+  color: #292929;
+  margin-right: 10px;
+  font-size: 1rem;
+}
 
 table {
   margin-top: 50px;
@@ -86,6 +95,7 @@ h4 {
   border: .5px solid #ccc;
   padding: 15px;
   box-sizing: border-box;
+  font-size: 1rem;
 }
 .textarea:hover,
 .textarea:focus {
@@ -102,5 +112,13 @@ h4 {
   margin: 0;
   margin-top: 20px;
   box-sizing: border-box;
-  padding: 10px;
+  padding: 10px 20px;
+}
+
+.pull-right {
+  float: right;
+}
+
+.btn-form {
+  margin-top: 20px;
 }
