@@ -11,11 +11,15 @@ class SessionItem extends React.Component {
   }
 
   render() {
-    const {studentEmail, id, createdAt, description, type, progress, duration, i} = this.props;
+    const {studentEmail, id, createdAt, description, type, progress, duration} = this.props;
     return(
       <div className="sessionCard">
         <p style={{display: "inline-block"}}>
-          {studentEmail} | {moment(createdAt).format("MM Do YY', h:mm:s A")} | {type} | {progress} | {description} | {duration.hours} | {duration.minutes} | {duration.seconds}
+        <Link to={{
+      pathname: `/student/${studentEmail}`,
+    }}>
+          {studentEmail}
+        </Link> | {moment(createdAt).format("MM Do YY', h:mm:s A")} | {type} | {progress} | {description} | {duration.hours} | {duration.minutes} | {duration.seconds}
         </p>
 
         <Link to={`/edit/${id}`} className="button m-l-0">

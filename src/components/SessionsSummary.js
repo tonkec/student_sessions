@@ -25,7 +25,6 @@ const SessionsSummary = (props) => {
 
 const mapStateToProps = (state) => {
   const totalSessions = selectSessions(state.sessions, state.filters);
-  // const totalSessions = total.slice(0, 5);
   return {
      sessions: totalSessions
    }

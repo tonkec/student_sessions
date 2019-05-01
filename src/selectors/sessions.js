@@ -5,7 +5,8 @@ export default(sessions, {sortBy, sortDirection, text}) => {
     session.type.toLowerCase().includes(text.toLowerCase()) ||
     session.progress.toLowerCase().includes(text.toLowerCase()) ||
     session.note.toLowerCase().includes(text.toLowerCase()) ||
-    session.studentEmail.toLowerCase().includes(text.toLowerCase()) ;
+    session.studentEmail.toLowerCase().includes(text.toLowerCase());
+
 
     return studentEmail && textMatch;
   }).sort((a,b) => {

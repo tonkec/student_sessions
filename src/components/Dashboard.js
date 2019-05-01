@@ -4,6 +4,8 @@ import SessionsFilters from './SessionsFilters';
 
 class Dashboard extends Component {
   render() {
+    console.log(this.props)
+
     return (
       <div>
         <h1> Your Sessions </h1>
