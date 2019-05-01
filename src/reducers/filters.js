@@ -1,13 +1,18 @@
 const filtersReducerDefaultState = {
-  text: "",
+  sortBy: "date",
 };
 
 const filtersReducer = (state = filtersReducerDefaultState, action) => {
   switch (action.type) {
-    case "SET_TEXT_FILTER":
+    case "SORT_BY_DATE":
       return {
         ...state,
-        text: action.text
+        sortBy: "date"
+      }
+    case "SORT_BY_EMAIL":
+      return {
+        ...state,
+        sortBy: "email"
       }
     default:
       return state;
