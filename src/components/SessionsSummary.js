@@ -11,7 +11,6 @@ const SessionsSummary = (props) => {
         <p>You don't have any sessions</p>
       ) : (
           <div>
-            <b> {props.sessions.length} </b>
             {props.sessions.map((session, i) => {
               return (
                 <SessionItem i={i} key={session.id} {...session} />
@@ -25,7 +24,8 @@ const SessionsSummary = (props) => {
 }
 
 const mapStateToProps = (state) => {
-  const totalSessions = selectSessions(state.sessions);
+  const total = selectSessions(state.sessions, state.filters);
+  const totalSessions = total.slice(0, 5);
   return {
      sessions: totalSessions
    }
