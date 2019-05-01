@@ -25,18 +25,23 @@ class SessionsFilters extends React.Component {
 
   render () {
     return (
-      <div className="flex">
-        <button onClick={this.sortByEmail} className="m-l-0 button btn-filter"> Sort by Email </button>
-        <button onClick={this.sortByDate} className="button btn-filter"> Sort by Date </button>
-        <button onClick={this.sortAscending} className="button btn-filter"> Sort Ascending </button>
-        <button onClick={this.sortDescending} className="button btn-filter"> Sort Descending </button>
-        <input
-          type="text"
-          placeholder="Search by keyword"
-          value={this.props.filters.text}
-          onChange={this.filterByText}
-          className="filter"
-        />
+      <div>
+        <div className="flex">
+          <button onClick={this.sortByEmail} className="m-l-0 button btn-filter"> Sort by Email </button>
+          <button onClick={this.sortByDate} className="button btn-filter"> Sort by Date </button>
+          <button onClick={this.sortAscending} className="button btn-filter"> Sort Ascending </button>
+          <button onClick={this.sortDescending} className="button btn-filter"> Sort Descending </button>
+        </div>
+
+        <div>
+          <input
+            type="text"
+            placeholder="Search by keyword"
+            value={this.props.filters.text}
+            onChange={this.filterByText}
+            className="filter m-l-0"
+          />
+        </div>
       </div>
     )
   }

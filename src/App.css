@@ -96,3 +96,11 @@ h4 {
 .m-l-0 {
   margin-left: 0 !important;
 }
+
+.filter {
+  width: 100%;
+  margin: 0;
+  margin-top: 20px;
+  box-sizing: border-box;
+  padding: 10px;
+}

@@ -9,8 +9,6 @@ export class EditSessionPage extends React.Component {
     this.props.history.push('/dashboard');
   }
   render () {
-    console.log(this.props)
-
     return (
       <div>
         <h1> Edit Session </h1>
