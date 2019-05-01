@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import selectSessions from '../selectors/sessions';
 import SessionsSummary from './SessionsSummary';
 import SessionsFilters from './SessionsFilters';
 

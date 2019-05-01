@@ -1,5 +1,6 @@
 const filtersReducerDefaultState = {
   sortBy: "date",
+  sortDirection: "ascending"
 };
 
 const filtersReducer = (state = filtersReducerDefaultState, action) => {
@@ -13,6 +14,16 @@ const filtersReducer = (state = filtersReducerDefaultState, action) => {
       return {
         ...state,
         sortBy: "email"
+      }
+    case "SORT_ASCENDING":
+      return {
+        ...state,
+        sortDirection: "ascending"
+      }
+    case "SORT_DESCENDING":
+      return {
+        ...state,
+        sortDirection: "descending"
       }
     default:
       return state;

@@ -1,4 +1,4 @@
-export default(sessions, {sortBy}) => {
+export default(sessions, {sortBy, sortDirection}) => {
   return sessions.filter((session) => {
     const studentEmail = session.studentEmail ? session.studentEmail : "no email provided"
     return studentEmail;
@@ -6,7 +6,11 @@ export default(sessions, {sortBy}) => {
     if (sortBy === 'date') {
       return a.createdAt < b.createdAt ? 1 : -1;
     } else if (sortBy === 'email') {
-      return a.studentEmail < b.studentEmail ? -1 : 1;
+      if (sortDirection === "ascending") {
+        return a.studentEmail < b.studentEmail ? -1 : 1;
+      } else if (sortDirection === "descending") {
+        return a.studentEmail > b.studentEmail ? -1 : 1;
+      }
     }
   })
 }
