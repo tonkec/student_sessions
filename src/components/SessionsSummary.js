@@ -27,7 +27,7 @@ const mapStateToProps = (state) => {
   const totalSessions = selectSessions(state.sessions, state.filters);
   return {
      sessions: totalSessions
-   }
+  }
 }
 
 export default connect(mapStateToProps)(SessionsSummary);
