@@ -1,8 +1,7 @@
-import React from 'react';
-import {PieChart, Pie, Tooltip} from 'recharts';
-import moment from 'moment';
+import React from "react";
+import { PieChart, Pie, Tooltip } from "recharts";
 
-const PieChartSessions = ({data, dataKey, nameKey}) => (
+const PieChartSessions = ({ data, dataKey, nameKey }) => (
   <PieChart width={730} height={250}>
     <Pie
       data={data}
@@ -14,7 +13,7 @@ const PieChartSessions = ({data, dataKey, nameKey}) => (
       fill="#8884d8"
       label
     />
-      <Tooltip />
+    <Tooltip />
   </PieChart>
 );
 
