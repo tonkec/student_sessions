@@ -7,6 +7,11 @@ export default (sessions) => {
     return s.studentEmail;
   });
 
+  let perType =  _.groupBy(sessions, function(s) {
+    return s.type;
+  });
+
+  console.log(perType)
   for (let i in perStudentSessions) {
     let duration = [];
     groupedDurations.push(duration);
