@@ -1,6 +1,5 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import selectSessions from '../selectors/sessions';
 import selectSessionsTotal from '../selectors/sessions-total';
 import moment from 'moment';
 

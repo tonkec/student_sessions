@@ -1,10 +1,9 @@
 import _ from 'lodash';
 
 export default (sessions) => {
-  let cut = sessions.slice(0, 60);
   let groupedDurations = [];
   let students = []
-  let perStudentSessions =  _.groupBy(cut, function(s) {
+  let perStudentSessions =  _.groupBy(sessions, function(s) {
     return s.studentEmail;
   });
 
