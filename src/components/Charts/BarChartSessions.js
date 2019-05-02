@@ -19,7 +19,8 @@ const BarChartSessions = ({data}) => (
       return `${formated._data.hours}h:${formated._data.minutes}m:${formated._data.seconds}s`
     }} />
     <Legend wrapperStyle={{
-        paddingTop: "20px"
+        paddingTop: "20px",
+        paddingBottom: "50px"
     }}/>
     <Bar dataKey="duration" fill="#2ec4b6" />
   </BarChart>
