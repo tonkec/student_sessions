@@ -12,8 +12,7 @@ const Header = ({ startLogout, email }) => (
     <NavLink to="/sessionsGraph"> Graphs </NavLink>
     <NavLink to="/oldSessions"> Google Api Sessions </NavLink>
     <button onClick={startLogout} className="pull-right">
-      {" "}
-      Log out from {email}{" "}
+      Log out from {email}
     </button>
   </header>
 );
