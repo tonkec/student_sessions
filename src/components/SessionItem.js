@@ -18,24 +18,82 @@ class SessionItem extends React.Component {
       description,
       type,
       progress,
-      duration
+      duration,
+      date,
+      note,
+      seeMore
     } = this.props;
+    let noteComponent = (
+      <p>
+        {" "}
+        <span> Note </span>: {note}{" "}
+      </p>
+    );
+
+    let descriptionComponent = (
+      <p>
+        {" "}
+        <span> Description </span>: {description}{" "}
+      </p>
+    );
+
+    let createdAtComponent = (
+      <p>
+        {" "}
+        <span> Created at </span>: {createdAt}{" "}
+      </p>
+    );
+
     return (
       <div className="sessionCard">
-        <p style={{ display: "inline-block" }}>
+        <p>
+          <span> email: </span>
           <Link
             to={{
               pathname: `/student/${studentEmail}`
             }}
           >
             {studentEmail}
-          </Link>{" "}
-          | {moment(createdAt).format("LLL")} | {type} | {progress} |{" "}
-          {description} | {duration.hours} | {duration.minutes} |{" "}
-          {duration.seconds}
+          </Link>
         </p>
 
-        <Link to={`/edit/${id}`} className="button m-l-0">
+        <p>
+          <span> Date of session: </span>
+          {moment(date).format("LLL")}
+        </p>
+
+        <p>
+          <span> Session duration: </span>
+          {duration.hours}:{duration.minutes}:{duration.seconds}
+        </p>
+
+        <p>
+          <span> Type of session: </span>
+          {type}
+        </p>
+
+        <p>
+          <span> Student's progress: </span> {progress}
+        </p>
+
+        {seeMore ? (
+          <Link
+            className="button m-l-0"
+            to={{
+              pathname: `/session/${id}`
+            }}
+          >
+            See more
+          </Link>
+        ) : (
+          <div>
+            {noteComponent}
+            {descriptionComponent}
+            {createdAtComponent}
+          </div>
+        )}
+
+        <Link to={`/edit/${id}`} className={`button ${seeMore ? "" : "m-l-0"}`}>
           Edit
         </Link>
 

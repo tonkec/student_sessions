@@ -30,7 +30,7 @@ input {
   margin-bottom: 0;
   padding: 5px 12px;
   line-height: 25px;
-  font-size: .9rem;
+  font-size: 0.9rem;
   vertical-align: middle;
   border: 1px solid #ccc;
 }
@@ -49,7 +49,7 @@ input:active {
   color: #fff;
   background-color: #2ec4b6;
   border: none;
-  font-size: 1rem;;
+  font-size: 1rem;
   vertical-align: middle;
   display: inline-block;
   text-decoration: none;
@@ -82,9 +82,13 @@ h4 {
 }
 
 .sessionCard {
-  border: .5px solid #ccc;
+  border: 0.5px solid #ccc;
   margin: 40px auto 0;
   padding: 20px;
+}
+
+.sessionCard p span {
+  font-weight: 700;
 }
 
 .textarea {
@@ -93,15 +97,15 @@ h4 {
   resize: none;
   height: 100px;
   margin-top: 20px;
-  border: .5px solid #ccc;
+  border: 0.5px solid #ccc;
   padding: 15px;
   box-sizing: border-box;
   font-size: 1rem;
 }
 .textarea:hover,
 .textarea:focus {
-  border: .5px solid #2ec4b6;
-  outline: #2ec4b6 .5px solid;
+  border: 0.5px solid #2ec4b6;
+  outline: #2ec4b6 0.5px solid;
 }
 
 .m-l-0 {
