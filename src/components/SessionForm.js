@@ -1,84 +1,95 @@
-import React, { Component } from 'react';
-import Select from 'react-select';
-import moment from 'moment';
+import React, { Component } from "react";
+import Select from "react-select";
+import moment from "moment";
 
 const typeOptions = [
-  { value: 'intro', label: 'intro' },
-  { value: 'project inception', label: 'project inception' },
-  { value: 'middle of project', label: 'middle of project' },
-  { value: 'end of project', label: 'end of project'},
-  { value: 'career advice', label: 'career advice'},
-  { value: 'other', label: 'other'},
-  { value: 'no show', label: 'no show'}
+  { value: "intro", label: "intro" },
+  { value: "project inception", label: "project inception" },
+  { value: "middle of project", label: "middle of project" },
+  { value: "end of project", label: "end of project" },
+  { value: "career advice", label: "career advice" },
+  { value: "other", label: "other" },
+  { value: "no show", label: "no show" }
 ];
 
 const progressOptions = [
-  { value: "Excellent - It's going great.", label: "Excellent - It's going great." },
-  { value: "Average - The student is moving at an acceptable pace.", label: "Average - The student is moving at an acceptable pace."},
-  { value: "I'm worried about this student's progress.", label: "I'm worried about this student's progress."}
-]
+  {
+    value: "Excellent - It's going great.",
+    label: "Excellent - It's going great."
+  },
+  {
+    value: "Average - The student is moving at an acceptable pace.",
+    label: "Average - The student is moving at an acceptable pace."
+  },
+  {
+    value: "I'm worried about this student's progress.",
+    label: "I'm worried about this student's progress."
+  }
+];
 
 class SessionForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      studentEmail: props.session ? props.session.studentEmail : '',
+      studentEmail: props.session ? props.session.studentEmail : "",
       type: props.session ? props.session.type : null,
       progress: props.session ? props.session.progress : null,
-      date: props.session ? props.session.date : '',
-      note: props.session ? props.session.note : '',
-      minute: props.session ? props.session.duration.minutes : '',
-      hour:  props.session ? props.session.duration.hours : '',
-      second: props.session ? props.session.duration.seconds : '',
-      description: props.session ? props.session.description : '',
-      createdAt: moment().format('MMMM Do YYYY, h:mm:ss a')
+      date: props.session
+        ? moment(props.session.date).format("YYYY-MM-DD")
+        : "",
+      note: props.session ? props.session.note : "",
+      minute: props.session ? props.session.duration.minutes : "",
+      hour: props.session ? props.session.duration.hours : "",
+      second: props.session ? props.session.duration.seconds : "",
+      description: props.session ? props.session.description : "",
+      createdAt: moment().format()
     };
   }
 
-  onStudentEmailChange = (e) => {
+  onStudentEmailChange = e => {
     const studentEmail = e.target.value;
-    this.setState({studentEmail})
-  }
+    this.setState({ studentEmail });
+  };
 
-  onDateChange = (e) => {
+  onDateChange = e => {
     const date = e.target.value;
-    this.setState({date})
-  }
+    this.setState({ date });
+  };
 
-  onSelectType = (type) => {
-   this.setState({ type: type.value });
-  }
+  onSelectType = type => {
+    this.setState({ type: type.value });
+  };
 
-  onSelectProgress = (progress) => {
+  onSelectProgress = progress => {
     this.setState({ progress: progress.value });
-  }
+  };
 
-  onNoteChange = (e) => {
+  onNoteChange = e => {
     const note = e.target.value;
-    this.setState({note})
-  }
+    this.setState({ note });
+  };
 
-  onMinuteChange = (e) => {
+  onMinuteChange = e => {
     const minute = e.target.value;
-    this.setState({minute})
-  }
+    this.setState({ minute });
+  };
 
-  onHourChange = (e) => {
+  onHourChange = e => {
     const hour = e.target.value;
-    this.setState({hour})
-  }
+    this.setState({ hour });
+  };
 
-  onSecondChange = (e) => {
+  onSecondChange = e => {
     const second = e.target.value;
-    this.setState({second})
-  }
+    this.setState({ second });
+  };
 
-  onDescriptionChange = (e) => {
+  onDescriptionChange = e => {
     const description = e.target.value;
-    this.setState({description})
-  }
+    this.setState({ description });
+  };
 
-  onSubmit = (e) => {
+  onSubmit = e => {
     e.preventDefault();
 
     let newData = {
@@ -94,14 +105,24 @@ class SessionForm extends Component {
         seconds: this.state.second
       },
       createdAt: this.state.createdAt
-    }
+    };
 
-    this.props.onSubmit(newData)
-  }
+    this.props.onSubmit(newData);
+  };
 
   render() {
-    const { type, progress, studentEmail, date, note, minute, hour, second, description } = this.state;
-    return(
+    const {
+      type,
+      progress,
+      studentEmail,
+      date,
+      note,
+      minute,
+      hour,
+      second,
+      description
+    } = this.state;
+    return (
       <div>
         <form onSubmit={this.onSubmit}>
           <input
@@ -183,22 +204,19 @@ class SessionForm extends Component {
             onChange={this.onDescriptionChange}
             required
             className="textarea"
-
-          >
-          </textarea>
+          />
 
           <textarea
             placeholder="Extra note for student care"
             value={note}
             onChange={this.onNoteChange}
             className="textarea"
-          >
-          </textarea>
+          />
 
           <button className="m-l-0 button btn-form"> Submit </button>
         </form>
       </div>
-    )
+    );
   }
 }
 
