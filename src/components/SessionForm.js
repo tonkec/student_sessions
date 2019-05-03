@@ -42,7 +42,7 @@ class SessionForm extends Component {
       hour: props.session ? props.session.duration.hours : "",
       second: props.session ? props.session.duration.seconds : "",
       description: props.session ? props.session.description : "",
-      createdAt: moment().format()
+      createdAt: props.session ? props.session.createdAt : moment().format()
     };
   }
 
@@ -126,7 +126,7 @@ class SessionForm extends Component {
       <div>
         <form onSubmit={this.onSubmit}>
           <input
-            type="text"
+            type="email"
             name="email"
             value={studentEmail}
             onChange={this.onStudentEmailChange}
