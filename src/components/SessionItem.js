@@ -25,22 +25,19 @@ class SessionItem extends React.Component {
     } = this.props;
     let noteComponent = (
       <p>
-        {" "}
-        <span> Note </span>: {note}{" "}
+        <span> Note </span>: {note}
       </p>
     );
 
     let descriptionComponent = (
       <p>
-        {" "}
-        <span> Description </span>: {description}{" "}
+        <span> Description </span>: {description}
       </p>
     );
 
     let createdAtComponent = (
       <p>
-        {" "}
-        <span> Created at </span>: {createdAt}{" "}
+        <span> Created at </span>: {createdAt}
       </p>
     );
 
