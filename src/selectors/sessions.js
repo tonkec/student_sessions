@@ -1,3 +1,4 @@
+// all sessions with filters included
 export default (sessions, { sortBy, sortDirection, text }) => {
   return sessions
     .filter(session => {
