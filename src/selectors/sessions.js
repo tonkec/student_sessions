@@ -17,9 +17,9 @@ export default (sessions, { sortBy, sortDirection, text }) => {
     .sort((a, b) => {
       if (sortBy === "date") {
         if (sortDirection === "descending") {
-          return new Date(b.createdAt) - new Date(a.createdAt);
+          return new Date(b.date) - new Date(a.date);
         } else if (sortDirection === "ascending") {
-          return new Date(a.createdAt) - new Date(b.createdAt);
+          return new Date(a.date) - new Date(b.date);
         }
       } else if (sortBy === "email") {
         if (sortDirection === "ascending") {
