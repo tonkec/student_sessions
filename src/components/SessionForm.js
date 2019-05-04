@@ -3,13 +3,13 @@ import Select from "react-select";
 import moment from "moment";
 
 const typeOptions = [
-  { value: "intro", label: "intro" },
-  { value: "project inception", label: "project inception" },
-  { value: "middle of project", label: "middle of project" },
-  { value: "end of project", label: "end of project" },
-  { value: "career advice", label: "career advice" },
-  { value: "other", label: "other" },
-  { value: "no show", label: "no show" }
+  { value: "Intro", label: "Intro" },
+  { value: "Project inception", label: "Project inception" },
+  { value: "Middle of project", label: "Middle of project" },
+  { value: "End of project", label: "End of project" },
+  { value: "Career advice", label: "Career advice" },
+  { value: "Other", label: "Other" },
+  { value: "No show", label: "No show" }
 ];
 
 const progressOptions = [
