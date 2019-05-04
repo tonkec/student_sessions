@@ -10,7 +10,7 @@ const Header = ({ startLogout }) => (
       Add New{" "}
     </NavLink>
     <NavLink to="/sessionsGraph"> Your Profile </NavLink>
-    <button onClick={startLogout} className="pull-right">
+    <button onClick={startLogout} className="btn-trans pull-right">
       Log out
     </button>
   </header>

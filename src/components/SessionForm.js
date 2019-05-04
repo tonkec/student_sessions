@@ -126,7 +126,7 @@ class SessionForm extends Component {
       <div>
         <form onSubmit={this.onSubmit}>
           <div className="group">
-            <label for="email"> Student's Email </label>
+            <label> Student's Email </label>
             <input
               type="email"
               name="email"
@@ -140,7 +140,7 @@ class SessionForm extends Component {
           </div>
 
           <div className="group">
-            <label for="date"> Date of session </label>
+            <label> Date of session </label>
             <input
               type="date"
               name="date"
