@@ -60,14 +60,14 @@ class SessionsFilters extends React.Component {
             className="m-l-0 btn-filter"
             title="Sort by date"
           >
-            Date{" "}
+            Date
           </button>
           <button
             onClick={this.sortByEmail}
             className="m-l-0 btn-filter"
             title="Sort by email"
           >
-            Email{" "}
+            Email
           </button>
           <button onClick={this.sort} className="btn-filter-inverse">
             {<Icon ascending={ascending} />}

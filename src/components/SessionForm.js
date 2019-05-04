@@ -125,93 +125,107 @@ class SessionForm extends Component {
     return (
       <div>
         <form onSubmit={this.onSubmit}>
-          <input
-            type="email"
-            name="email"
-            value={studentEmail}
-            onChange={this.onStudentEmailChange}
-            placeholder="Student's email address"
-            autoFocus
-            required
-            className="m-l-0"
-          />
+          <div className="group">
+            <label for="email"> Student's Email </label>
+            <input
+              type="email"
+              name="email"
+              value={studentEmail}
+              onChange={this.onStudentEmailChange}
+              placeholder="Student's email address"
+              autoFocus
+              required
+              className="m-l-0"
+            />
+          </div>
 
-          <input
-            type="date"
-            name="date"
-            value={date}
-            onChange={this.onDateChange}
-            required
-          />
+          <div className="group">
+            <label for="date"> Date of session </label>
+            <input
+              type="date"
+              name="date"
+              value={date}
+              onChange={this.onDateChange}
+              required
+            />
+          </div>
 
-          <input
-            type="number"
-            name="hour"
-            value={hour}
-            onChange={this.onHourChange}
-            min="0"
-            max="59"
-            maxLength="2"
-            placeholder="h"
-            required
-          />
+          <div className="group group-duration">
+            <label> Duration of session </label>
+            <input
+              type="number"
+              name="hour"
+              value={hour}
+              onChange={this.onHourChange}
+              min="0"
+              max="59"
+              maxLength="2"
+              placeholder="h"
+              required
+            />
 
-          <input
-            type="number"
-            name="minute"
-            value={minute}
-            onChange={this.onMinuteChange}
-            min="0"
-            max="59"
-            maxLength="2"
-            placeholder="m"
-            required
-          />
+            <input
+              type="number"
+              name="minute"
+              value={minute}
+              onChange={this.onMinuteChange}
+              min="0"
+              max="59"
+              maxLength="2"
+              placeholder="m"
+              required
+            />
 
-          <input
-            type="number"
-            name="second"
-            value={second}
-            onChange={this.onSecondChange}
-            min="0"
-            max="59"
-            maxLength="2"
-            placeholder="s"
-            required
-          />
+            <input
+              type="number"
+              name="second"
+              value={second}
+              onChange={this.onSecondChange}
+              min="0"
+              max="59"
+              maxLength="2"
+              placeholder="s"
+              required
+            />
+          </div>
 
-          <h2> Select type of session </h2>
+          <div className="group">
+            <label> Select type of session </label>
+            <Select
+              onChange={this.onSelectType}
+              options={typeOptions}
+              defaultValue={{ label: type, value: type }}
+              required
+            />
+          </div>
 
-          <Select
-            onChange={this.onSelectType}
-            options={typeOptions}
-            defaultValue={{ label: type, value: type }}
-            required
-          />
+          <div className="group">
+            <label> Select type of progress </label>
+            <Select
+              defaultValue={{ label: progress, value: progress }}
+              onChange={this.onSelectProgress}
+              options={progressOptions}
+              required
+            />
+          </div>
 
-          <h2> Select type of progress </h2>
-
-          <Select
-            defaultValue={{ label: progress, value: progress }}
-            onChange={this.onSelectProgress}
-            options={progressOptions}
-            required
-          />
-
-          <textarea
-            placeholder="Describe what you covered in the session"
-            value={description}
-            onChange={this.onDescriptionChange}
-            required
-            className="textarea"
-          />
-
-          <textarea
-            placeholder="Extra note for student care"
-            value={note}
-            onChange={this.onNoteChange}
-            className="textarea"
-          />
+          <div className="group">
+            <textarea
+              placeholder="Describe what you covered in the session"
+              value={description}
+              onChange={this.onDescriptionChange}
+              required
+              className="textarea"
+            />
+          </div>
+          <div className="group">
+            <textarea
+              placeholder="Extra note for student care"
+              value={note}
+              onChange={this.onNoteChange}
+              className="textarea"
+            />
+          </div>
 
           <button className="m-l-0 button btn-form"> Submit </button>
         </form>
