@@ -1,0 +1,41 @@
+input {
+  margin: 0 10px;
+  margin-bottom: 0;
+  padding: 5px 12px;
+  line-height: 25px;
+  font-size: 0.9rem;
+  vertical-align: middle;
+  border: 1px solid #ccc;
+}
+
+input:focus,
+input:active {
+  outline: none;
+  border: 2px solid #2ec4b6;
+}
+
+.textarea {
+  display: block;
+  width: 100%;
+  resize: none;
+  height: 100px;
+  margin-top: 20px;
+  border: 0.5px solid #ccc;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+.textarea:hover,
+.textarea:focus {
+  border: 0.5px solid #2ec4b6;
+  outline: #2ec4b6 0.5px solid;
+}
+
+.filter-field {
+  width: 100%;
+  margin: 0;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  box-sizing: border-box;
+  padding: 10px 20px;
+}
