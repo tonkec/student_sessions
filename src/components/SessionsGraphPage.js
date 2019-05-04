@@ -4,6 +4,7 @@ import selectTypes from "../selectors/sessions-type";
 import selectProgress from "../selectors/sessions-progress";
 import BarChartSessions from "./Charts/BarChartSessions";
 import PieChartSessions from "./Charts/PieChartSessions";
+import LoggedInAs from "./LoggedInAs";
 import { connect } from "react-redux";
 
 class SessionsGraphPage extends React.Component {
@@ -11,6 +12,7 @@ class SessionsGraphPage extends React.Component {
     return (
       <div>
         <h1> Sessions Graphs </h1>
+        <LoggedInAs />
         <BarChartSessions data={this.props.total} />
         <PieChartSessions
           data={this.props.types}

@@ -3,16 +3,15 @@ import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { startLogout } from "../actions/auth";
 
-const Header = ({ startLogout, email }) => (
+const Header = ({ startLogout }) => (
   <header>
     <NavLink to="/dashboard"> Dashboard </NavLink>
     <NavLink to="/addSession" activeClassName="is-active">
       Add New{" "}
     </NavLink>
-    <NavLink to="/sessionsGraph"> Graphs </NavLink>
-    <NavLink to="/oldSessions"> Google Api Sessions </NavLink>
+    <NavLink to="/sessionsGraph"> Your Profile </NavLink>
     <button onClick={startLogout} className="pull-right">
-      Log out from {email}
+      Log out
     </button>
   </header>
 );
@@ -21,11 +20,7 @@ const mapDispatchToProps = dispatch => ({
   startLogout: () => dispatch(startLogout())
 });
 
-const mapStateToProps = (state, props) => ({
-  email: state.auth.email
-});
-
 export default connect(
-  mapStateToProps,
+  undefined,
   mapDispatchToProps
 )(Header);
