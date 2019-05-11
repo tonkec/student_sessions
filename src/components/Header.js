@@ -11,7 +11,6 @@ class Header extends React.Component {
     } else if (auth.id === "guest") {
       logoutAsGuest();
       history.push("/");
-      console.log(this.props);
     }
   };
   render() {
