@@ -21,8 +21,8 @@ class LoginForm extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    let uid = uuid();
-    this.props.loginWithoutGoogle(uid, this.state.email, this.state.password);
+    let id = uuid();
+    this.props.loginWithoutGoogle(id, this.state.email, this.state.password);
   };
 
   render() {
@@ -45,9 +45,8 @@ class LoginForm extends React.Component {
         </button>
         <br />
         <small>
-          {" "}
           If you already have account, we will log you in. If you don't have
-          account, we will create a new one{" "}
+          account, we will create a new one
         </small>
       </form>
     );

@@ -22,9 +22,9 @@ export const logout = () => ({
   type: "LOGOUT"
 });
 
-export const loginWithoutGoogle = (uid, email, password) => ({
+export const loginWithoutGoogle = (id, email, password) => ({
   type: "LOGIN_WITHOUT_GOOGLE",
-  uid,
+  id,
   email,
   password
 });
