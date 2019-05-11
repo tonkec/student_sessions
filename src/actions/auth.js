@@ -21,3 +21,10 @@ export const login = (uid, email) => ({
 export const logout = () => ({
   type: "LOGOUT"
 });
+
+export const loginWithoutGoogle = (uid, email, password) => ({
+  type: "LOGIN_WITHOUT_GOOGLE",
+  uid,
+  email,
+  password
+});

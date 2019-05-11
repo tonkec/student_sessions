@@ -7,6 +7,12 @@ export default (state = {}, action) => {
       };
     case "LOGOUT":
       return {};
+    case "LOGIN_WITHOUT_GOOGLE":
+      return {
+        uid: action.uid,
+        email: action.email,
+        password: action.password
+      };
     default:
       return state;
   }
