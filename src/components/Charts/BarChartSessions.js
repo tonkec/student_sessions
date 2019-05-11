@@ -13,7 +13,6 @@ import moment from "moment";
 const BarChartSessions = ({ data }) => (
   <ResponsiveContainer width="100%" height={200}>
     <BarChart data={data} style={{ marginTop: 100 }}>
-      {console.log(data)}
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="email" hide={true} />
       <YAxis
