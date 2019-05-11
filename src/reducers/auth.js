@@ -7,11 +7,9 @@ export default (state = {}, action) => {
       };
     case "LOGOUT":
       return {};
-    case "LOGIN_WITHOUT_GOOGLE":
+    case "LOGIN_AS_GUEST":
       return {
-        id: action.id,
-        email: action.email,
-        password: action.password
+        id: action.id
       };
     default:
       return state;
