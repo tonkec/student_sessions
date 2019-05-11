@@ -26,3 +26,7 @@ export const loginAsGuest = id => ({
   type: "LOGIN_AS_GUEST",
   id
 });
+
+export const logoutAsGuest = () => ({
+  type: "LOGOUT_AS_GUEST"
+});

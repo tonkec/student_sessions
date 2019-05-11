@@ -7,6 +7,8 @@ export default (state = {}, action) => {
       };
     case "LOGOUT":
       return {};
+    case "LOGOUT_AS_GUEST":
+      return {};
     case "LOGIN_AS_GUEST":
       return {
         id: action.id
