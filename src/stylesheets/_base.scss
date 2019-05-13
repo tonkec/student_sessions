@@ -1,0 +1,16 @@
+.container {
+  padding: 15px;
+  margin: 0 auto;
+  padding-bottom: 100px;
+}
+
+@media (min-width: 820px) {
+  .container {
+    padding: 0 30px 100px;
+    max-width: 800px;
+  }
+
+  .flex {
+    display: flex;
+  }
+}
