@@ -1,22 +1,15 @@
-import db from '../firebase/firebase';
+import db from "../firebase/firebase";
 
-// studentEmail = "default",
-// duration = "",
-// type = "",
-// progress = "",
-// description = "",
-// note = "",
-// count = 0,
-// timestamp = 0
-
-export const addSession = (session) => ({
+export const addSession = session => ({
   type: "ADD_SESSION",
   session
 });
 
 export const addSessionToDb = (sessionData = {}) => {
   return (dispatch, getState) => {
-    const userId = getState().auth.uid;
+    const userId = getState().auth.uid
+      ? getState().auth.uid
+      : getState().auth.id;
     const {
       studentEmail = "",
       date = "",
@@ -25,70 +18,96 @@ export const addSessionToDb = (sessionData = {}) => {
       note = "",
       description = "",
       duration = "",
-      createdAt = 0,
-    } = sessionData
-    const session =  { studentEmail, date, type, progress, note, description, duration, createdAt }
+      createdAt = 0
+    } = sessionData;
+    const session = {
+      studentEmail,
+      date,
+      type,
+      progress,
+      note,
+      description,
+      duration,
+      createdAt
+    };
 
-    return db.ref(`users/${userId}/sessions`).push(session).then((ref) => {
-      console.log(session)
-      dispatch(addSession({
-        id: ref.key,
-        ...session
-      }))
-    });
-  }
-}
+    return db
+      .ref(`users/${userId}/sessions`)
+      .push(session)
+      .then(ref => {
+        dispatch(
+          addSession({
+            id: ref.key,
+            ...session
+          })
+        );
+      });
+  };
+};
 
-export const getSessions = (sessions) => ({
+export const getSessions = sessions => ({
   type: "GET_SESSIONS",
   sessions
-})
+});
 
 export const startGetSessions = () => {
   return (dispatch, getState) => {
-    const userId = getState().auth.uid;
-    return db.ref(`users/${userId}/sessions`).once('value').then((snapshot) => {
-      const sessions = [];
+    const userId = getState().auth.uid
+      ? getState().auth.uid
+      : getState().auth.id;
+    return db
+      .ref(`users/${userId}/sessions`)
+      .once("value")
+      .then(snapshot => {
+        const sessions = [];
 
-      snapshot.forEach((childSnapshot) => {
-        sessions.push({
-          id: childSnapshot.key,
-          ...childSnapshot.val()
+        snapshot.forEach(childSnapshot => {
+          sessions.push({
+            id: childSnapshot.key,
+            ...childSnapshot.val()
+          });
         });
+
+        dispatch(getSessions(sessions));
       });
-
-      dispatch(getSessions(sessions));
-    });
-  }
-}
-
-// store.dispatch(removeSession({id: "asdasd2"}))
+  };
+};
 
 export const removeSession = ({ id } = {}) => ({
-  type: 'REMOVE_SESSION',
+  type: "REMOVE_SESSION",
   id
 });
 
-export const startRemoveSession = ({id}) => {
+export const startRemoveSession = ({ id }) => {
   return (dispatch, getState) => {
-    const userId = getState().auth.uid;
-    return db.ref(`users/${userId}/sessions/${id}`).remove().then(() => {
-      dispatch(removeSession({ id }))
-    })
-  }
-}
+    const userId = getState().auth.uid
+      ? getState().auth.uid
+      : getState().auth.id;
+    return db
+      .ref(`users/${userId}/sessions/${id}`)
+      .remove()
+      .then(() => {
+        dispatch(removeSession({ id }));
+      });
+  };
+};
 
 export const editSession = (id, newData) => ({
-  type: 'EDIT_SESSION',
+  type: "EDIT_SESSION",
   id,
   newData
 });
 
 export const startEditSession = (id, newData) => {
   return (dispatch, getState) => {
-    const userId = getState().auth.uid;
-    return db.ref(`users/${userId}/sessions/${id}`).update(newData).then(() => {
-      dispatch(editSession(id, newData))
-    })
-  }
-}
+    const userId = getState().auth.uid
+      ? getState().auth.uid
+      : getState().auth.id;
+    return db
+      .ref(`users/${userId}/sessions/${id}`)
+      .update(newData)
+      .then(() => {
+        dispatch(editSession(id, newData));
+      });
+  };
+};

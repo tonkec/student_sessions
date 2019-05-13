@@ -1,19 +1,45 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import { NavLink } from 'react-router-dom';
-import {startLogout} from '../actions/auth';
+import React from "react";
+import { connect } from "react-redux";
+import { NavLink } from "react-router-dom";
+import { startLogout, logoutAsGuest } from "../actions/auth";
+import { history } from "../routers/AppRouter";
+class Header extends React.Component {
+  handleLogOut = () => {
+    const { auth, startLogout, logoutAsGuest } = this.props;
+    if (auth.uid) {
+      startLogout();
+    } else if (auth.id === "guest") {
+      localStorage.removeItem("user");
+      logoutAsGuest();
+      history.push("/");
+    }
+  };
+  render() {
+    return (
+      <header>
+        <NavLink to="/dashboard"> Dashboard </NavLink>
+        <NavLink to="/addSession" activeClassName="is-active">
+          Add New
+        </NavLink>
+        <NavLink to="/sessionsGraph"> Your Profile </NavLink>
+        <button onClick={this.handleLogOut} className="btn-trans pull-right">
+          Log out
+        </button>
+      </header>
+    );
+  }
+}
 
-const Header = ({startLogout}) => (
-  <header>
-    <NavLink to="/dashboard"> Dashboard | </NavLink>
-    <NavLink to="/addSession" activeClassName="is-active">Add New | </NavLink>
-    <NavLink to='/oldSessions'> Google Api Sessions </NavLink>
-    <button onClick={startLogout}> Log out </button>
-  </header>
-)
+const mapDispatchToProps = dispatch => ({
+  startLogout: () => dispatch(startLogout()),
+  logoutAsGuest: () => dispatch(logoutAsGuest())
+});
 
-const mapDispatchToProps = (dispatch) => ({
-  startLogout: () => dispatch(startLogout())
-})
+const mapStateToProps = (state, props) => ({
+  auth: state.auth
+});
 
-export default connect(undefined, mapDispatchToProps)(Header);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Header);
