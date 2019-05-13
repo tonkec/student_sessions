@@ -41,4 +41,8 @@
     height: 30px;
     border: none;
   }
+
+  &.active {
+    border-bottom: 2px solid #292929;
+  }
 }

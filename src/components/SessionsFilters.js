@@ -17,15 +17,19 @@ library.add(faSortAmountUp, faSortAmountDown);
 
 class SessionsFilters extends React.Component {
   state = {
-    ascending: false
+    ascending: false,
+    activeEmail: false,
+    activeDate: true
   };
 
   sortByEmail = () => {
     this.props.sortByEmail();
+    this.setState({ activeEmail: true, activeDate: false });
   };
 
   sortByDate = () => {
     this.props.sortByDate();
+    this.setState({ activeDate: true, activeEmail: false });
   };
 
   sortAscending = () => {
@@ -50,21 +54,25 @@ class SessionsFilters extends React.Component {
   };
 
   render() {
-    const { ascending } = this.state;
+    const { ascending, activeDate, activeEmail } = this.state;
     return (
       <div>
         <div className="filters-wrapper">
           <p> Sort by: </p>
           <button
             onClick={this.sortByDate}
-            className="m-l-0 btn-filter"
+            className={
+              activeDate ? "m-l-0 btn-filter active" : "m-l-0 btn-filter"
+            }
             title="Sort by date"
           >
             Date
           </button>
           <button
             onClick={this.sortByEmail}
-            className="m-l-0 btn-filter"
+            className={
+              activeEmail ? "m-l-0 btn-filter active" : "m-l-0 btn-filter"
+            }
             title="Sort by email"
           >
             Email
