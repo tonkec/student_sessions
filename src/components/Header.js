@@ -9,6 +9,7 @@ class Header extends React.Component {
     if (auth.uid) {
       startLogout();
     } else if (auth.id === "guest") {
+      localStorage.removeItem("user");
       logoutAsGuest();
       history.push("/");
     }
