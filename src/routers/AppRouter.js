@@ -6,7 +6,7 @@ import LoginPage from "../components/LoginPage";
 import AddSessionPage from "../components/AddSessionPage";
 import EditSessionPage from "../components/EditSessionPage";
 import StudentPage from "../components/StudentPage";
-import SessionsGraphPage from "../components/SessionsGraphPage";
+import ProfilePage from "../components/ProfilePage";
 import SessionPage from "../components/SessionPage";
 import OldSessionsPage from "../components/OldSessionsPage";
 import NotFoundPage from "../components/NotFoundPage";
@@ -22,7 +22,7 @@ const AppRouter = () => (
         <PublicRoute path="/" component={LoginPage} exact={true} />
         <PrivateRoute path="/dashboard" component={Dashboard} />
         <PrivateRoute path="/addSession" component={AddSessionPage} />
-        <PrivateRoute path="/sessionsGraph" component={SessionsGraphPage} />
+        <PrivateRoute path="/profile" component={ProfilePage} />
         <PrivateRoute path="/session/:id" component={SessionPage} />
         <PrivateRoute path="/edit/:id" component={EditSessionPage} />
         <PrivateRoute path="/student/:email" component={StudentPage} />

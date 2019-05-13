@@ -7,11 +7,11 @@ import PieChartSessions from "./Charts/PieChartSessions";
 import LoggedInAs from "./LoggedInAs";
 import { connect } from "react-redux";
 
-class SessionsGraphPage extends React.Component {
+class ProfilePage extends React.Component {
   render() {
     return (
       <div>
-        <h1> Sessions Graphs </h1>
+        <h1> Your Profile </h1>
         <LoggedInAs />
         <p>
           You currently have
@@ -56,4 +56,4 @@ const mapStateToProps = (state, props) => {
   };
 };
 
-export default connect(mapStateToProps)(SessionsGraphPage);
+export default connect(mapStateToProps)(ProfilePage);

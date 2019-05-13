@@ -21,7 +21,7 @@ class Header extends React.Component {
         <NavLink to="/addSession" activeClassName="is-active">
           Add New
         </NavLink>
-        <NavLink to="/sessionsGraph"> Your Profile </NavLink>
+        <NavLink to="/profile"> Your Profile </NavLink>
         <button onClick={this.handleLogOut} className="btn-trans pull-right">
           Log out
         </button>
