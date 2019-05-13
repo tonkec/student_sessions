@@ -6,10 +6,39 @@ import { connect } from "react-redux";
 class LoginAsGuest extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
-    let id = "guest";
+    this.saveUser();
+  };
+
+  loginUser = user => {
     this.props.logout();
-    this.props.loginAsGuest(id);
+    this.props.loginAsGuest(user);
     this.props.getSessions();
+  };
+
+  saveUser = () => {
+    let user = localStorage.setItem("user", "guest");
+    this.loginUser();
+  };
+
+  checkUser = () => {
+    let user = localStorage.getItem("user");
+    if (user) {
+      this.loginUser();
+      // login user
+    } else {
+      console.log("user ne postoji");
+      // redirect to dashboard
+    }
+  };
+
+  loginUser = () => {
+    this.props.logout();
+    this.props.loginAsGuest("guest");
+    this.props.getSessions();
+  };
+
+  componentDidMount = () => {
+    this.checkUser();
   };
 
   render() {
@@ -22,8 +51,7 @@ class LoginAsGuest extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch, props) => ({
-  loginAsGuest: (uid, email, password) =>
-    dispatch(loginAsGuest(uid, email, password)),
+  loginAsGuest: id => dispatch(loginAsGuest(id)),
   logout: () => dispatch(logout()),
   getSessions: () => dispatch(startGetSessions())
 });
