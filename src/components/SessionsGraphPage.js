@@ -16,8 +16,8 @@ class SessionsGraphPage extends React.Component {
         <p>
           Your currently have
           {this.props.sessions.length >= 1
-            ? `${this.props.sessions.length} sessions`
-            : `${this.props.sessions.length} session`}
+            ? ` ${this.props.sessions.length} sessions`
+            : ` ${this.props.sessions.length} session`}
         </p>
         {this.props.sessions.length >= 5 ? (
           <div>
