@@ -16,7 +16,7 @@ class LoginAsGuest extends React.Component {
   };
 
   saveUser = () => {
-    let user = localStorage.setItem("user", "guest");
+    localStorage.setItem("user", "guest");
     this.loginUser();
   };
 
