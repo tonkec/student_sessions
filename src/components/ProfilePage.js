@@ -12,7 +12,7 @@ const ProfilePage = ({ sessions, total, types, progress }) => (
     <h1> Your Profile </h1>
     <LoggedInAs />
     <p>
-      You currently have
+      Currently you have
       {sessions.length >= 1
         ? ` ${sessions.length} sessions`
         : ` ${sessions.length} session`}
