@@ -13,7 +13,12 @@ class SessionsGraphPage extends React.Component {
       <div>
         <h1> Sessions Graphs </h1>
         <LoggedInAs />
-        <BarChartSessions data={this.props.total} />
+        <BarChartSessions
+          data={this.props.total}
+          xKey="email"
+          yKey="duration"
+          barKey="duration"
+        />
         <PieChartSessions
           data={this.props.types}
           dataKey="count"

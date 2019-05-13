@@ -11,6 +11,7 @@ class StudentPage extends React.Component {
     const count = this.props.studentSessions.length;
     const seconds = this.props.selectSessionsTotalDuration;
     const duration = moment.duration(seconds, "seconds");
+    console.log(this.props.sessionsWithGroupedDuration);
     return (
       <div>
         <h2>
@@ -23,6 +24,13 @@ class StudentPage extends React.Component {
             {duration._data.seconds}s
           </span>
         </p>
+
+        <BarChartSessions
+          data={this.props.sessionsWithGroupedDuration}
+          barKey="duration"
+          xKey="date"
+          yKey="duration"
+        />
       </div>
     );
   }

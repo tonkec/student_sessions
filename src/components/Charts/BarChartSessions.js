@@ -10,16 +10,18 @@ import {
 } from "recharts";
 import moment from "moment";
 
-const BarChartSessions = ({ data }) => (
+const BarChartSessions = ({ data, xKey, yKey, barKey }) => (
   <ResponsiveContainer width="100%" height={200}>
     <BarChart data={data} style={{ marginTop: 100 }}>
       <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="email" hide={true} />
+      <XAxis dataKey={xKey} hide={true} />
       <YAxis
-        label={{ value: "hours", angle: -90, position: "insideLeft" }}
+        dataKey={yKey}
+        allowDuplicateCategory={false}
+        angle={-45}
         tickFormatter={value => {
-          let formated = moment.duration(value, "seconds");
-          return formated._data.hours;
+          let formatted = moment.duration(value, "seconds");
+          return `${formatted._data.hours}h ${formatted._data.minutes}m`;
         }}
       />
       <Tooltip
@@ -30,7 +32,7 @@ const BarChartSessions = ({ data }) => (
           }s`;
         }}
       />
-      <Bar dataKey="duration" fill="#2ec4b6" />
+      <Bar dataKey={barKey} fill="#2ec4b6" />
     </BarChart>
   </ResponsiveContainer>
 );
