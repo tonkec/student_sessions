@@ -13,22 +13,28 @@ class SessionsGraphPage extends React.Component {
       <div>
         <h1> Sessions Graphs </h1>
         <LoggedInAs />
-        <BarChartSessions
-          data={this.props.total}
-          xKey="email"
-          yKey="duration"
-          barKey="duration"
-        />
-        <PieChartSessions
-          data={this.props.types}
-          dataKey="count"
-          nameKey="type"
-        />
-        <PieChartSessions
-          data={this.props.progress}
-          dataKey="count"
-          nameKey="progress"
-        />
+        {this.props.sessions.length >= 5 ? (
+          <div>
+            <BarChartSessions
+              data={this.props.total}
+              xKey="email"
+              yKey="duration"
+              barKey="duration"
+            />
+            <PieChartSessions
+              data={this.props.types}
+              dataKey="count"
+              nameKey="type"
+            />
+            <PieChartSessions
+              data={this.props.progress}
+              dataKey="count"
+              nameKey="progress"
+            />{" "}
+          </div>
+        ) : (
+          "You need to have at least 5 sessions to display graphs"
+        )}
       </div>
     );
   }
