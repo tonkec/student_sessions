@@ -14,11 +14,10 @@ class SessionsGraphPage extends React.Component {
         <h1> Sessions Graphs </h1>
         <LoggedInAs />
         <p>
-          {" "}
-          Your currently have{" "}
+          Your currently have
           {this.props.sessions.length >= 1
             ? `${this.props.sessions.length} sessions`
-            : `${this.props.sessions.length} session`}{" "}
+            : `${this.props.sessions.length} session`}
         </p>
         {this.props.sessions.length >= 5 ? (
           <div>
@@ -37,7 +36,7 @@ class SessionsGraphPage extends React.Component {
               data={this.props.progress}
               dataKey="count"
               nameKey="progress"
-            />{" "}
+            />
           </div>
         ) : (
           "We need at least 5 sessions to create graphs"
