@@ -7,44 +7,32 @@ import PieChartSessions from "./Charts/PieChartSessions";
 import LoggedInAs from "./LoggedInAs";
 import { connect } from "react-redux";
 
-class ProfilePage extends React.Component {
-  render() {
-    return (
+const ProfilePage = ({ sessions, total, types, progress }) => (
+  <div className="profile-page">
+    <h1> Your Profile </h1>
+    <LoggedInAs />
+    <p>
+      You currently have
+      {sessions.length >= 1
+        ? ` ${sessions.length} sessions`
+        : ` ${sessions.length} session`}
+    </p>
+    {sessions.length >= 5 ? (
       <div>
-        <h1> Your Profile </h1>
-        <LoggedInAs />
-        <p>
-          You currently have
-          {this.props.sessions.length >= 1
-            ? ` ${this.props.sessions.length} sessions`
-            : ` ${this.props.sessions.length} session`}
-        </p>
-        {this.props.sessions.length >= 5 ? (
-          <div>
-            <BarChartSessions
-              data={this.props.total}
-              xKey="email"
-              yKey="duration"
-              barKey="duration"
-            />
-            <PieChartSessions
-              data={this.props.types}
-              dataKey="count"
-              nameKey="type"
-            />
-            <PieChartSessions
-              data={this.props.progress}
-              dataKey="count"
-              nameKey="progress"
-            />
-          </div>
-        ) : (
-          "We need at least 5 sessions to create graphs"
-        )}
+        <BarChartSessions
+          data={total}
+          xKey="email"
+          yKey="duration"
+          barKey="duration"
+        />
+        <PieChartSessions data={types} dataKey="count" nameKey="type" />
+        <PieChartSessions data={progress} dataKey="count" nameKey="progress" />
       </div>
-    );
-  }
-}
+    ) : (
+      "We need at least 5 sessions to create graphs"
+    )}
+  </div>
+);
 
 const mapStateToProps = (state, props) => {
   const totalSessions = state.sessions;
