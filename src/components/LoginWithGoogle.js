@@ -6,7 +6,7 @@ class LoginWithGoogle extends React.Component {
   render() {
     return (
       <button className="button m-l-0" onClick={this.props.startLogin}>
-        Login With Google
+        Login with Gmail
       </button>
     );
   }
