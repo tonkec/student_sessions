@@ -13,6 +13,13 @@ class SessionsGraphPage extends React.Component {
       <div>
         <h1> Sessions Graphs </h1>
         <LoggedInAs />
+        <p>
+          {" "}
+          Your currently have{" "}
+          {this.props.sessions.length >= 1
+            ? `${this.props.sessions.length} sessions`
+            : `${this.props.sessions.length} session`}{" "}
+        </p>
         {this.props.sessions.length >= 5 ? (
           <div>
             <BarChartSessions
@@ -33,7 +40,7 @@ class SessionsGraphPage extends React.Component {
             />{" "}
           </div>
         ) : (
-          "You need to have at least 5 sessions to display graphs"
+          "We need at least 5 sessions to create graphs"
         )}
       </div>
     );
