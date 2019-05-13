@@ -1,12 +1,23 @@
 import React from "react";
 import { connect } from "react-redux";
 import BarChartSessions from "./Charts/BarChartSessions";
+import Message from "./Message";
+
+import { history } from "../routers/AppRouter";
+import { showMessage } from "../actions/messages";
 
 import selectSessionsTotalDuration from "../selectors/sessions-total-duration";
 import selectSessionDuration from "../selectors/student-session-duration";
 import moment from "moment";
 
 class StudentPage extends React.Component {
+  componentDidMount = () => {
+    if (!this.props.studentEmail) {
+      this.props.showMessage({ show: true, message: "No such student" });
+      history.push("/");
+    }
+  };
+
   render() {
     const email = this.props.match.params.email;
     const count = this.props.studentSessions.length;
@@ -40,11 +51,23 @@ const mapStateToProps = (state, props) => {
   let studentSessions = state.sessions.filter(
     s => s.studentEmail === props.match.params.email
   );
+  let studentEmail = state.sessions.find(s => {
+    return s.studentEmail === props.match.params.email;
+  });
+
   return {
     studentSessions: studentSessions,
+    studentEmail: studentEmail,
     sessionsWithGroupedDuration: selectSessionDuration(studentSessions),
     selectSessionsTotalDuration: selectSessionsTotalDuration(studentSessions)
   };
 };
 
-export default connect(mapStateToProps)(StudentPage);
+const mapDispatchToProps = (dispatch, state) => ({
+  showMessage: (show, message) => dispatch(showMessage(show, message))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(StudentPage);
