@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import BarChartSessions from "./Charts/BarChartSessions";
+
 import selectSessionsTotalDuration from "../selectors/sessions-total-duration";
 import selectSessionDuration from "../selectors/student-session-duration";
 import moment from "moment";
@@ -11,7 +12,6 @@ class StudentPage extends React.Component {
     const count = this.props.studentSessions.length;
     const seconds = this.props.selectSessionsTotalDuration;
     const duration = moment.duration(seconds, "seconds");
-    console.log(this.props.sessionsWithGroupedDuration);
     return (
       <div>
         <h2>

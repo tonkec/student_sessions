@@ -26,7 +26,6 @@ class LoginAsGuest extends React.Component {
       this.loginUser();
       // login user
     } else {
-      console.log("user ne postoji");
       // redirect to dashboard
     }
   };
