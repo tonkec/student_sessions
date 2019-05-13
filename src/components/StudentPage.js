@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
+import BarChartSessions from "./Charts/BarChartSessions";
 import selectSessionsTotalDuration from "../selectors/sessions-total-duration";
+import selectSessionDuration from "../selectors/student-session-duration";
 import moment from "moment";
 
 class StudentPage extends React.Component {
@@ -32,6 +34,7 @@ const mapStateToProps = (state, props) => {
   );
   return {
     studentSessions: studentSessions,
+    sessionsWithGroupedDuration: selectSessionDuration(studentSessions),
     selectSessionsTotalDuration: selectSessionsTotalDuration(studentSessions)
   };
 };
