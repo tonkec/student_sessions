@@ -94,8 +94,8 @@ class SessionForm extends Component {
 
     let newData = {
       studentEmail: this.state.studentEmail,
-      type: this.state.type.value,
-      progress: this.state.progress.value,
+      type: this.state.type,
+      progress: this.state.progress,
       date: this.state.date,
       note: this.state.note,
       description: this.state.description,
