@@ -35,13 +35,16 @@ class StudentPage extends React.Component {
             {duration._data.seconds}s
           </span>
         </p>
-
-        <BarChartSessions
-          data={this.props.sessionsWithGroupedDuration}
-          barKey="duration"
-          xKey="date"
-          yKey="duration"
-        />
+        {this.props.sessionsWithGroupedDuration.length > 3 ? (
+          <BarChartSessions
+            data={this.props.sessionsWithGroupedDuration}
+            barKey="duration"
+            xKey="date"
+            yKey="duration"
+          />
+        ) : (
+          "We can not show graph because this student doesn't have enough data yet"
+        )}
       </div>
     );
   }
