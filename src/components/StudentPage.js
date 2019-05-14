@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import BarChartSessions from "./Charts/BarChartSessions";
-import Message from "./Message";
 
 import { history } from "../routers/AppRouter";
 import { showMessage } from "../actions/messages";
