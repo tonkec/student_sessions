@@ -77,7 +77,7 @@ class SessionItem extends React.Component {
           <span> Student's progress: </span> {progress}
         </p>
 
-        <div className="btn-wrapper">
+        <div className={`${seeMore ? "btn-wrapper" : ""}`}>
           {seeMore ? (
             <Link
               className="button m-l-0"
