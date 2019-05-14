@@ -3,6 +3,10 @@ import { connect } from "react-redux";
 import { startRemoveSession } from "../actions/sessions";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+library.add(faTrash);
 
 class SessionItem extends React.Component {
   handleClick = e => {
@@ -73,30 +77,38 @@ class SessionItem extends React.Component {
           <span> Student's progress: </span> {progress}
         </p>
 
-        {seeMore ? (
+        <div className="btn-wrapper">
+          {seeMore ? (
+            <Link
+              className="button m-l-0"
+              to={{
+                pathname: `/session/${id}`
+              }}
+            >
+              See more
+            </Link>
+          ) : (
+            <div>
+              {noteComponent}
+              {descriptionComponent}
+              {createdAtComponent}
+            </div>
+          )}
+
           <Link
-            className="button m-l-0"
-            to={{
-              pathname: `/session/${id}`
-            }}
+            to={`/edit/${id}`}
+            className={`button ${seeMore ? "" : "m-l-0"}`}
           >
-            See more
+            Edit
           </Link>
-        ) : (
-          <div>
-            {noteComponent}
-            {descriptionComponent}
-            {createdAtComponent}
-          </div>
-        )}
 
-        <Link to={`/edit/${id}`} className={`button ${seeMore ? "" : "m-l-0"}`}>
-          Edit
-        </Link>
-
-        <button onClick={this.handleClick} className="button">
-          Delete
-        </button>
+          <button
+            onClick={this.handleClick}
+            className="btn-filter-inverse pull-right"
+          >
+            <FontAwesomeIcon icon="trash" color="#a09c9c" />
+          </button>
+        </div>
       </div>
     );
   }
