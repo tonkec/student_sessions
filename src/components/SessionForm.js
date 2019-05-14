@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Select from "react-select";
 import moment from "moment";
+import { SingleDatePicker } from "react-dates";
 
 const typeOptions = [
   { value: "Intro", label: "Intro" },
@@ -36,13 +37,14 @@ class SessionForm extends Component {
       progress: props.session ? props.session.progress : null,
       date: props.session
         ? moment(props.session.date).format("YYYY-MM-DD")
-        : "",
+        : null,
       note: props.session ? props.session.note : "",
       minute: props.session ? props.session.duration.minutes : "",
       hour: props.session ? props.session.duration.hours : "",
       second: props.session ? props.session.duration.seconds : "",
       description: props.session ? props.session.description : "",
-      createdAt: props.session ? props.session.createdAt : moment().format()
+      createdAt: props.session ? props.session.createdAt : moment().format(),
+      focused: false
     };
   }
 
@@ -51,8 +53,7 @@ class SessionForm extends Component {
     this.setState({ studentEmail });
   };
 
-  onDateChange = e => {
-    const date = e.target.value;
+  onDateChange = date => {
     this.setState({ date });
   };
 
@@ -141,12 +142,16 @@ class SessionForm extends Component {
 
           <div className="group">
             <label> Date of session </label>
-            <input
-              type="date"
-              name="date"
-              value={date}
-              onChange={this.onDateChange}
-              required
+            {console.log(this.state.date)}
+            <SingleDatePicker
+              date={this.state.date}
+              onDateChange={this.onDateChange}
+              focused={this.state.focused}
+              onFocusChange={({ focused }) => this.setState({ focused })}
+              numberOfMonths={1}
+              readOnly={true}
+              isOutsideRange={() => false}
+              id="single-date-picker"
             />
           </div>
 

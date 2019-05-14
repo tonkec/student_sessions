@@ -7,6 +7,8 @@ import { login, logout } from "./actions/auth";
 import "./App.scss";
 import AppRouter, { history } from "./routers/AppRouter";
 import { firebase } from "./firebase/firebase";
+import "react-dates/initialize";
+import "react-dates/lib/css/_datepicker.css";
 const store = configureStore();
 
 const jsx = (
