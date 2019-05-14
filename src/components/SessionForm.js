@@ -142,7 +142,7 @@ class SessionForm extends Component {
             <label> Date of session </label>
 
             <SingleDatePicker
-              date={this.state.date}
+              date={date}
               onDateChange={this.onDateChange}
               focused={this.state.focused}
               onFocusChange={({ focused }) => this.setState({ focused })}
