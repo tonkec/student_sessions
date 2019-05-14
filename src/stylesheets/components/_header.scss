@@ -1,5 +1,21 @@
 header {
-  padding: 40px 0 0;
+  nav {
+    // position: fixed;
+    // background-color: #fafafa;
+    //
+    // left: 0;
+    // right: 0;
+    // top: 0;
+    ul {
+      padding: 0;
+      padding: 15px 0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    li {
+      display: inline-block;
+    }
+  }
 }
 
 header a {

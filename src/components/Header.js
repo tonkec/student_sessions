@@ -17,14 +17,27 @@ class Header extends React.Component {
   render() {
     return (
       <header>
-        <NavLink to="/dashboard"> Dashboard </NavLink>
-        <NavLink to="/addSession" activeClassName="is-active">
-          Add New
-        </NavLink>
-        <NavLink to="/profile"> Your Profile </NavLink>
-        <button onClick={this.handleLogOut} className="btn-trans pull-right">
-          Log out
-        </button>
+        <nav>
+          <ul>
+            <li>
+              <NavLink to="/dashboard"> Dashboard </NavLink>
+            </li>
+            <li>
+              <NavLink to="/addSession" activeClassName="is-active">
+                Add New
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/profile"> Your Profile </NavLink>
+            </li>
+            <button
+              onClick={this.handleLogOut}
+              className="btn-trans pull-right"
+            >
+              Log out
+            </button>
+          </ul>
+        </nav>
       </header>
     );
   }
