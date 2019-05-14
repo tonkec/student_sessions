@@ -25,8 +25,20 @@ const ProfilePage = ({ sessions, total, types, progress }) => (
           yKey="duration"
           barKey="duration"
         />
-        <PieChartSessions data={types} dataKey="count" nameKey="type" />
-        <PieChartSessions data={progress} dataKey="count" nameKey="progress" />
+        <PieChartSessions
+          data={types}
+          dataKey="count"
+          nameKey="type"
+          fill="#8884d8"
+          description="All your sessions by types"
+        />
+        <PieChartSessions
+          data={progress}
+          dataKey="count"
+          nameKey="progress"
+          fill="#869DF0"
+          description="All your sessions by progress"
+        />
       </div>
     ) : (
       "We need at least 5 sessions to create graphs"
