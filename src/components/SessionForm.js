@@ -35,9 +35,7 @@ class SessionForm extends Component {
       studentEmail: props.session ? props.session.studentEmail : "",
       type: props.session ? props.session.type : null,
       progress: props.session ? props.session.progress : null,
-      date: props.session
-        ? moment(props.session.date).format("YYYY-MM-DD")
-        : null,
+      date: props.session ? moment(props.session.date) : null,
       note: props.session ? props.session.note : "",
       minute: props.session ? props.session.duration.minutes : "",
       hour: props.session ? props.session.duration.hours : "",
@@ -97,7 +95,7 @@ class SessionForm extends Component {
       studentEmail: this.state.studentEmail,
       type: this.state.type,
       progress: this.state.progress,
-      date: this.state.date,
+      date: moment(this.state.date).format("YYYY-MM-DD"),
       note: this.state.note,
       description: this.state.description,
       duration: {
@@ -142,7 +140,7 @@ class SessionForm extends Component {
 
           <div className="group">
             <label> Date of session </label>
-            {console.log(this.state.date)}
+
             <SingleDatePicker
               date={this.state.date}
               onDateChange={this.onDateChange}
