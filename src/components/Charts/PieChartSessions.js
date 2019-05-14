@@ -2,7 +2,7 @@ import React from "react";
 import { PieChart, Pie, Tooltip, ResponsiveContainer } from "recharts";
 
 const PieChartSessions = ({ data, dataKey, nameKey, fill, description }) => (
-  <div style={{ width: "100%", height: 200, marginTop: 150 }}>
+  <div style={{ width: "100%", height: 250, marginTop: 100 }}>
     <p className="text-center">{description} </p>
     <ResponsiveContainer>
       <PieChart width={730} height={250}>
