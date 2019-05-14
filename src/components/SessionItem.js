@@ -44,7 +44,7 @@ class SessionItem extends React.Component {
     return (
       <div className="sessionCard">
         <p>
-          <span> email: </span>
+          <span> Email: </span>
           <Link
             to={{
               pathname: `/student/${studentEmail}`
