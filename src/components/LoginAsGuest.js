@@ -4,41 +4,26 @@ import { startGetSessions } from "./../actions/sessions";
 import { connect } from "react-redux";
 
 class LoginAsGuest extends React.Component {
+  state = {
+    user: ""
+  };
+
   handleSubmit = e => {
     e.preventDefault();
-    this.saveUser();
+    this.setState({ user: "guest" });
+    this.storeUser();
   };
 
-  loginUser = user => {
-    this.props.logout();
-    this.props.loginAsGuest(user);
-    this.props.getSessions();
-  };
-
-  saveUser = () => {
-    localStorage.setItem("user", "guest");
-    this.loginUser();
-  };
-
-  checkUser = () => {
-    let user = localStorage.getItem("user");
-    if (user) {
-      this.loginUser();
-      // login user
-    } else {
-      // redirect to dashboard
+  async storeUser() {
+    try {
+      const value = await localStorage.setItem("user", this.state.user);
+      await localStorage.setItem("user", this.state.user);
+      await this.props.loginAsGuest(this.state.user);
+      this.props.getSessions();
+    } catch (error) {
+      console.log(error);
     }
-  };
-
-  loginUser = () => {
-    this.props.logout();
-    this.props.loginAsGuest("guest");
-    this.props.getSessions();
-  };
-
-  componentDidMount = () => {
-    this.checkUser();
-  };
+  }
 
   render() {
     return (

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import configureStore from "./store/configureStore";
 import { startGetSessions } from "./actions/sessions";
-import { login, logout } from "./actions/auth";
+import { login, logout, loginAsGuest } from "./actions/auth";
 import "./App.scss";
 import AppRouter, { history } from "./routers/AppRouter";
 import { firebase } from "./firebase/firebase";
@@ -18,7 +18,7 @@ const jsx = (
 );
 
 let hasRendered = false;
-
+let value = localStorage.getItem("user");
 const renderApp = () => {
   if (!hasRendered) {
     ReactDOM.render(jsx, document.getElementById("root"));
@@ -35,7 +35,14 @@ firebase.auth().onAuthStateChanged(user => {
         history.push("/dashboard");
       }
     });
+  } else if (value === "guest") {
+    // console.log("Logging you in as guest...");
+    store.dispatch(loginAsGuest(value));
+    store.dispatch(startGetSessions()).then(() => {
+      renderApp();
+    });
   } else {
+    // console.log("I don't recognize this user...");
     store.dispatch(logout());
     renderApp();
     history.push("/");
