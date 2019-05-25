@@ -16,9 +16,9 @@ An app that CRUDs mentoring sessions I have with my students
 3. [Firebase](https://firebase.google.com/)
 4. cool npm packages
    - [lodash](https://lodash.com/) => cleans data before it is passed to graphs
-   - [moment.js](https://momentjs.com/) => saves date of a session
+   - [moment.js](https://momentjs.com/) => formats date of a session
    - [react-dates](https://github.com/airbnb/react-dates) => datepicker for a session
-   - [faker.js](https://github.com/marak/Faker.js/) => created fake data for guest user
+   - [faker.js](https://github.com/marak/Faker.js/) => created fake data for a guest user
    - [recharts](http://recharts.org/) => display meaningful data
 
 ### Demo
