@@ -1,6 +1,6 @@
 # Sessions Tracker
 
-![sessions_tracker](https://i.ibb.co/HH9Tvfg/Screenshot-2019-05-25-at-20-55-01.png)
+![sessions_tracker](https://i.ibb.co/bNvbX6V/Screenshot-2019-05-25-at-21-05-45.png)
 
 An app that CRUDs mentoring sessions I have with my students
 
