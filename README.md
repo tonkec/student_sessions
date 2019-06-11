@@ -21,10 +21,6 @@ An app that CRUDs mentoring sessions I have with my students
    - [faker.js](https://github.com/marak/Faker.js/) => created fake data for a guest user
    - [recharts](http://recharts.org/) => display meaningful data
 
-## Follow my progress in the trello board
-
-https://trello.com/b/PYBJuS6X/sessionstracker
-
 ### Demo
 
 [https://sessionstracker.herokuapp.com/](https://sessionstracker.herokuapp.com/)
